@@ -8,26 +8,25 @@
 
     <title>dashboard</title>
 
+    <link rel="stylesheet" href="{{ asset('admin/fonts/fontawesome/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/fonts/iransans/font-face.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 
-    {{-- custom css --}}
     @vite('resources/scss/admin.scss')
 </head>
 
 <body>
 
-    @include('admin.layouts.navbar')
+    <x-admin.navbar />
 
     <div class="container-fluid">
         <div class="row">
 
-            @include('admin.layouts.sidebar')
+            <x-admin.sidebar />
 
             <main id="main" class="col-md-12 mr-sm-auto col-lg-10 px-md-4 pt-5 text-right"><br>
 
-                @yield('content')
+                {{ $slot }}
 
             </main>
         </div>
@@ -38,7 +37,6 @@
     <script src="{{ asset('admin/js/popper.min.js') }}"></script>
     <script src="{{ asset('admin/js/bootstrap.min.js') }}"></script>
 
-    {{-- custom js --}}
     @vite('resources/js/admin.js')
 
 </body>

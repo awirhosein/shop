@@ -1,5 +1,3 @@
-@extends('admin.layout')
-
-@section('content')
-    dashboard
-@endsection('content')
+<x-admin-layout>
+    
+</x-admin-layout>
