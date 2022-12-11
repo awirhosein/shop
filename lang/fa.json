@@ -1,0 +1,18 @@
+{
+    "Dashboard": "داشبورد",
+    "Members": "اعضا",
+    "Users": "کاربران",
+    "Admins": "مدیران",
+    "Logout": "خروج",
+    "Shop": "فروشگاه",
+    "Name": "نام",
+    "Email": "ایمیل",
+    "Registration Date": "تاریخ عضویت",
+    "Edit": "ویرایش",
+    "Edit User": "ویرایش کاربر",
+    "Save": "ذخیره",
+    "Add": "افزودن",
+    "Add User": "افزودن کاربر",
+    "Password": "رمزعبور",
+    "Confirm Password": "تایید رمزعبور"
+}
