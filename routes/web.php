@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\Members\{UserController, AdminController};
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +24,26 @@ Route::get('/', function () {
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 
-Route::middleware(['auth', 'admin'])->group(function () {
+Route::prefix('dashboard')->as('admin.')->middleware(['auth', 'admin', 'back_url'])->group(function () {
 
-    Route::get('dashboard', function () {
+    Route::get('/', function () {
         return view('admin.pages.index');
     })->name('dashboard');
+
+    // members
+    Route::group([], function () {
+        // users
+        Route::group([], function () {
+            Route::get('users', [UserController::class, 'index'])->name('users.index');
+            Route::get('users/create', [UserController::class, 'create'])->name('users.create');
+            Route::post('users/create', [UserController::class, 'store']);
+            Route::get('users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+            Route::put('users/{user}/edit', [UserController::class, 'update']);
+        });
+        // admins
+        Route::group([], function () {
+            Route::get('admins', [AdminController::class, 'index'])->name('admins.index');
+        });
+    });
+
 });

@@ -5,8 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>dashboard</title>
+    <title>{{ __('dashboard') }}</title>
 
     <link rel="stylesheet" href="{{ asset('admin/fonts/fontawesome/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/fonts/iransans/font-face.css') }}">
@@ -20,7 +19,7 @@
     <x-admin.navbar />
 
     <div class="container-fluid">
-        <div class="row">
+        <div class="row m-0">
 
             <x-admin.sidebar />
 

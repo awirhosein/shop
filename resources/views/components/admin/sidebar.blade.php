@@ -1,30 +1,41 @@
-<nav id="sidebarMenu" class="col-lg-2 d-lg-block bg-light sidebar collapse">
+@php $route = Str::After(Route::currentRouteName(), '.'); @endphp
+
+<nav class="sidebar col-lg-2 d-lg-block bg-light collapse">
     <div class="sidebar-sticky pt-3">
         <ul class="nav flex-column mb-5 pr-0 pb-5" id="sidebar">
 
             {{-- Home --}}
             <li class="nav-item">
-                <a class="nav-link active" href="#">
+                <a class="nav-link" href="#">
                     <i class="fa fa-home"></i>
-                    <span>داشبورد</span>
+                    <span>{{ __('Dashboard') }}</span>
                 </a>
             </li>
 
-            {{-- <li class="nav-item collapsed" data-toggle="collapse" data-target="#users">
-                <a class="nav-link">
+            {{-- members --}}
+            <li class="nav-item collapsed" data-toggle="collapse" data-target="#members">
+                <a class="nav-link pointer">
                     <i class="fa fa-chevron-left"></i>
-                    <span>اعضا</span>
+                    <span>{{ __('Members') }}</span>
                 </a>
             </li>
 
-            <div id="users" class="collapse" data-parent="#sidebar">
+            <div id="members" class="collapse" data-parent="#sidebar">
+                {{-- users --}}
                 <li class="nav-item">
-                    <a class="nav-link {{ $routeName == 'users' ? 'active' : '' }}" href="{{ route('admin.users.index') }}">
+                    <a class="nav-link {{ Str::is('users.*', $route) ? 'active' : '' }}" href="{{ route('admin.users.index') }}">
                         <i class="fa fa-users"></i>
-                        <span>کاربران</span>
+                        <span>{{ __('Users') }}</span>
                     </a>
                 </li>
-            </div> --}}
+                {{-- admins --}}
+                <li class="nav-item">
+                    <a class="nav-link {{ Str::is('admins.*', $route) ? 'active' : '' }}" href="{{ route('admin.admins.index') }}">
+                        <i class="fa fa-users"></i>
+                        <span>{{ __('Admins') }}</span>
+                    </a>
+                </li>
+            </div>
 
         </ul>
     </div>
