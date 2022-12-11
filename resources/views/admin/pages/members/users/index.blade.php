@@ -28,7 +28,7 @@
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->created_at }}</td>
                     <td class="text-left">
-                        <x-admin.dropdown :edit="route('admin.users.edit', $user->id)" />
+                        <x-admin.dropdown :edit="route('admin.users.edit', $user->id)" :delete="route('admin.users.destroy', $user->id)" />
                     </td>
                 </tr>
             @endforeach

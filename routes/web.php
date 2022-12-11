@@ -39,6 +39,7 @@ Route::prefix('dashboard')->as('admin.')->middleware(['auth', 'admin', 'back_url
             Route::post('users/create', [UserController::class, 'store']);
             Route::get('users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
             Route::put('users/{user}/edit', [UserController::class, 'update']);
+            Route::delete('users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
         });
         // admins
         Route::group([], function () {

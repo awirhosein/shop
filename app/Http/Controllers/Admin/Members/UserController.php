@@ -30,6 +30,8 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        // TODO: sweet alert
+
         return back_url()
             ? redirect(back_url())
             : redirect()->route('admin.users.index');
@@ -51,5 +53,12 @@ class UserController extends Controller
         return back_url()
             ? redirect(back_url())
             : redirect()->route('admin.users.index');
+    }
+
+    public function destroy(User $user)
+    {
+        $user->delete();
+        
+        return redirect()->back();
     }
 }
