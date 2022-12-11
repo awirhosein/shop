@@ -30,7 +30,7 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        // TODO: sweet alert
+        toast(__('msg.success.create'), 'success');
 
         return back_url()
             ? redirect(back_url())
@@ -50,6 +50,8 @@ class UserController extends Controller
 
         $user->update($validated);
 
+        toast(__('msg.success.update'), 'success');
+
         return back_url()
             ? redirect(back_url())
             : redirect()->route('admin.users.index');
@@ -58,7 +60,9 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        
+
+        toast(__('msg.success.delete'), 'success');
+
         return redirect()->back();
     }
 }

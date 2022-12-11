@@ -24,7 +24,7 @@
             <x-admin.sidebar />
 
             <main id="main" class="col-md-12 mr-sm-auto col-lg-10 px-md-4 pt-5 text-right"><br>
-
+                
                 {{ $slot }}
 
             </main>
@@ -36,8 +36,9 @@
     <script src="{{ asset('admin/js/popper.min.js') }}"></script>
     <script src="{{ asset('admin/js/bootstrap.min.js') }}"></script>
 
+    @include('sweetalert::alert')
+
     @vite('resources/js/admin.js')
 
 </body>
-
 </html>
