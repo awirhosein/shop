@@ -4,9 +4,9 @@
     <div class="sidebar-sticky pt-3">
         <ul class="nav flex-column mb-5 pr-0 pb-5" id="sidebar">
 
-            {{-- Home --}}
+            {{-- dashboard --}}
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link {{ $route == 'dashboard' ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
                     <i class="fa fa-home"></i>
                     <span>{{ __('Dashboard') }}</span>
                 </a>
@@ -36,6 +36,14 @@
                     </a>
                 </li>
             </div>
+
+            {{-- products --}}
+            <li class="nav-item">
+                <a class="nav-link {{ Str::is('products.*', $route) ? 'active' : '' }}" href="{{ route('admin.products.index') }}">
+                    <i class="fa fa-users"></i>
+                    <span>{{ __('Products') }}</span>
+                </a>
+            </li>
 
         </ul>
     </div>

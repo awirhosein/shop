@@ -9,7 +9,7 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $admins = User::isAdmin()->latest()->paginate(30);
+        $admins = User::isAdmin()->latest()->paginate(config('custom.per_page'));
 
         return view('admin.pages.members.admins.index', compact('admins'));
     }

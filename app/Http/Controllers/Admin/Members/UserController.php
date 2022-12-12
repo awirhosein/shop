@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::isUser()->latest()->paginate(30);
+        $users = User::isUser()->latest()->paginate(config('custom.per_page'));
 
         return view('admin.pages.members.users.index', compact('users'));
     }
@@ -32,9 +32,7 @@ class UserController extends Controller
 
         toast(__('msg.success.create'), 'success');
 
-        return back_url()
-            ? redirect(back_url())
-            : redirect()->route('admin.users.index');
+        return redirect_back('admin.users.index');
     }
 
     public function edit(User $user)
@@ -52,9 +50,7 @@ class UserController extends Controller
 
         toast(__('msg.success.update'), 'success');
 
-        return back_url()
-            ? redirect(back_url())
-            : redirect()->route('admin.users.index');
+        return redirect_back('admin.users.index');
     }
 
     public function destroy(User $user)
