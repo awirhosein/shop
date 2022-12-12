@@ -123,6 +123,16 @@ body {
     }
 }
 
+li[aria-expanded="false"] i {
+    transition: 0.3s;
+    transform: rotate(0deg);
+}
+
+li[aria-expanded="true"] i {
+    transition: 0.3s;
+    transform: rotate(-90deg);
+}
+
 .collapse > li > a {
     transition: 0.3s;
     padding-right: 30px !important;
@@ -275,7 +285,7 @@ a[href="https://www.froala.com/wysiwyg-editor?k=u"]
     font-family: sahel !important;
 }
 
-// sweet alert 
+// sweet alert
 .swal2-container {
     padding-left: 25px !important;
     padding-bottom: 35px !important;
