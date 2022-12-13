@@ -23,7 +23,8 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => ['required', 'min:3']
+            'name' => ['required', 'min:3'],
+            'content' => ['nullable'],
         ]);
 
         // TODO: observer
@@ -44,7 +45,8 @@ class ProductController extends Controller
     public function update(Product $product, Request $request)
     {
         $validated = $request->validate([
-            'name' => ['required', 'min:3']
+            'name' => ['required', 'min:3'],
+            'content' => ['nullable'],
         ]);
 
         $product->update($validated);

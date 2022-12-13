@@ -1,15 +1,15 @@
 <x-admin-layout>
     <div>
-        <span class="font-weight-bold" style="font-size:22px">{{ __('admins') }}</span>
+        <span class="font-weight-bold" style="font-size:22px">{{ __('Admins') }}</span>
     </div>
 
-    <div class="index-main">
+    <div class="index-page">
         <table class="table-hover table">
             <tr>
                 <th>#</th>
-                <th>{{ __('name') }}</th>
-                <th>{{ __('email') }}</th>
-                <th>{{ __('registration_date') }}</th>
+                <th>{{ __('Name') }}</th>
+                <th>{{ __('Email') }}</th>
+                <th>{{ __('Registration Date') }}</th>
                 <th></th>
             </tr>
 
@@ -27,9 +27,9 @@
 
             <tr class="border-top">
                 <th>#</th>
-                <th>{{ __('name') }}</th>
-                <th>{{ __('email') }}</th>
-                <th>{{ __('registration_date') }}</th>
+                <th>{{ __('Name') }}</th>
+                <th>{{ __('Email') }}</th>
+                <th>{{ __('Registration Date') }}</th>
                 <th></th>
             </tr>
         </table>

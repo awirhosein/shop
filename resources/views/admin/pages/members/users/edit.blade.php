@@ -2,7 +2,7 @@
 
     <div class="edit-page">
         <h6 class="border-bottom mb-4 pb-3">
-            <span>{{ __('Edit User') }}</span>
+            <span>{{ hybrid_trans('Edit User') }}</span>
         </h6>
 
         <form action="{{ route('admin.users.edit', $user->id) }}" method="POST">

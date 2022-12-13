@@ -2,7 +2,7 @@
 
     <div class="create-page">
         <h6 class="border-bottom mb-4 pb-3">
-            <span>{{ __('Add User') }}</span>
+            <span>{{ hybrid_trans('Add User') }}</span>
         </h6>
 
         <form action="{{ route('admin.users.create') }}" method="POST">
