@@ -10,10 +10,23 @@ if (!function_exists('back_url')) {
 }
 
 if (!function_exists('redirect_back')) {
-    function redirect_back($routeName)
+    function redirect_back(string $routeName)
     {
         return back_url()
             ? redirect(back_url())
             : redirect()->route($routeName);
+    }
+}
+
+if (!function_exists('hybrid_trans')) {
+    function hybrid_trans(string $text)
+    {
+        $arr = explode(" ", $text);
+
+        foreach ($arr as $key => $value) {
+            $arr[$key] = trans($value);
+        }
+
+        return implode(' ', $arr);
     }
 }
