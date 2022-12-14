@@ -26,7 +26,7 @@
                     <td class="font-weight-bold w-0">{{ $product->id }}</td>
                     <td>{{ $product->name }}</td>
                     <td>{{ $product->category?->name }}</td>
-                    <td>{{ $product->status }}</td>
+                    <td>{{ __($product->status) }}</td>
                     <td class="text-left">
                         <x-admin.dropdown :edit="route('admin.products.edit', $product->id)" :delete="route('admin.products.destroy', $product->id)" />
                     </td>

@@ -26,14 +26,12 @@ class CategoryController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'min:3'],
-            'slug' => ['required', 'min:3'],
             'parent_id' => ['nullable'],
         ]);
 
-        // TODO: observer
-        $validated['slug'] = str()->slug($request->slug);
+        $slug = str()->slug($request->name);
 
-        Category::create($validated);
+        Category::create($validated + ['slug' => $slug]);
 
         toast(__('msg.success.create'), 'success');
 
@@ -51,13 +49,12 @@ class CategoryController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'min:3'],
-            'slug' => ['required', 'min:3'],
             'parent_id' => ['nullable'],
         ]);
 
-        $validated['slug'] = str()->slug($request->slug);
+        $slug = str()->slug($request->name);
 
-        $category->update($validated);
+        $category->update($validated + ['slug' => $slug]);
 
         toast(__('msg.success.update'), 'success');
 

@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 use App\Models\{Product, Category};
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Product\{StoreRequest, UpdateRequest};
 
 class ProductController extends Controller
 {
@@ -23,19 +22,12 @@ class ProductController extends Controller
         return view('admin.pages.products.create', compact('categories'));
     }
 
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        $validated = $request->validate([
-            'name' => ['required', 'min:3'],
-            'content' => ['nullable'],
-            'category_id' => ['nullable'],
-            'status' => ['required', Rule::in(Product::STATUS_TYPES)]
-        ]);
+        $text = str()->lower($request->name);
+        $slug = str()->replace(' ', '-', $text);
 
-        // TODO: observer
-        $validated['slug'] = str()->slug($request->name);
-
-        Product::create($validated);
+        Product::create($request->validated() + ['slug' => $slug]);
 
         toast(__('msg.success.create'), 'success');
 
@@ -49,16 +41,12 @@ class ProductController extends Controller
         return view('admin.pages.products.edit', compact('product', 'categories'));
     }
 
-    public function update(Product $product, Request $request)
+    public function update(UpdateRequest $request, Product $product)
     {
-        $validated = $request->validate([
-            'name' => ['required', 'min:3'],
-            'content' => ['nullable'],
-            'category_id' => ['nullable'],
-            'status' => ['required', Rule::in(Product::STATUS_TYPES)]
-        ]);
+        $text = str()->lower($request->name);
+        $slug = str()->replace(' ', '-', $text);
 
-        $product->update($validated);
+        $product->update($request->validated() + ['slug' => $slug]);
 
         toast(__('msg.success.update'), 'success');
 

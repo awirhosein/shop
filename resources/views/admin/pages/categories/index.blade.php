@@ -16,7 +16,6 @@
             <tr>
                 <th>#</th>
                 <th>{{ __('Name') }}</th>
-                <th>{{ __('Slug') }}</th>
                 <th>{{ __('Parent Category') }}</th>
                 <th></th>
             </tr>
@@ -25,7 +24,6 @@
                 <tr>
                     <td class="font-weight-bold w-0">{{ $category->id }}</td>
                     <td>{{ $category->name }}</td>
-                    <td>{{ $category->slug }}</td>
                     <td>{{ $category->parent?->name }}</td>
                     <td class="text-left">
                         <x-admin.dropdown :edit="route('admin.categories.edit', $category->id)" :delete="route('admin.categories.destroy', $category->id)" />
@@ -36,7 +34,6 @@
             <tr class="border-top">
                 <th>#</th>
                 <th>{{ __('Name') }}</th>
-                <th>{{ __('Slug') }}</th>
                 <th>{{ __('Parent Category') }}</th>
                 <th></th>
             </tr>

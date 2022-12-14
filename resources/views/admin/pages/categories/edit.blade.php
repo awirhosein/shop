@@ -16,12 +16,6 @@
             </div>
 
             <div class="form-group">
-                <label class="text-muted">{{ __('Slug') }}</label>
-                <input type="text" class="form-control" name="slug" value="{{ old('slug', $category->slug) }}">
-                <x-admin.error name="slug" />
-            </div>
-
-            <div class="form-group">
                 <label class="text-muted">{{ __('Parent Category') }}</label>
                 <select id="select2" class="form-control" name="parent_id">
                     <option value="">انتخاب کنید</option>

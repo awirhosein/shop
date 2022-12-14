@@ -149,5 +149,8 @@
     "Categories": "دسته بندی ها",
     "Category": "دسته بندی",
     "Parent Category": "دسته مادر",
-    "Slug": "لینک"
+    "Slug": "لینک",
+    "Draft": "پیش نویس",
+    "Published": "منتشر شده",
+    "Archived": "آرشیو شده"
 }
