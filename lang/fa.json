@@ -145,5 +145,9 @@
     "Status": "وضعیت",
     "Registration Date": "تاریخ عضویت",
     "Content": "محتوا",
-    "Edit": "ویرایش"
+    "Edit": "ویرایش",
+    "Categories": "دسته بندی ها",
+    "Category": "دسته بندی",
+    "Parent Category": "دسته مادر",
+    "Slug": "لینک"
 }

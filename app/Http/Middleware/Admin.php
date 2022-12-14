@@ -19,6 +19,10 @@ class Admin
     {
         if (!Auth::user()->is_admin()) abort(403);
 
+        if (session('back_url') == url()->full()) {
+            session()->forget('back_url');
+        }
+
         return $next($request);
     }
 }

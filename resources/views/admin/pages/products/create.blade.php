@@ -5,7 +5,7 @@
             <span>{{ hybrid_trans('Add Product') }}</span>
         </h6>
 
-        <form action="{{ route('admin.products.create') }}" method="POST">
+        <form action="{{ route('admin.products.store') }}" method="POST">
             @csrf
 
             <div class="form-group">
@@ -15,14 +15,37 @@
             </div>
 
             <div class="form-group">
+                <label class="text-muted">{{ __('Category') }}</label>
+                <select class="select2 form-control" name="category_id">
+                    <option value="">انتخاب کنید</option>
+                    @foreach ($categories as $cat)
+                        <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                    @endforeach
+                </select>
+                <x-admin.error name="category_id" />
+            </div>
+
+            <div class="form-group">
                 <label class="text-muted">{{ __('Content') }}</label>
                 <textarea id="tinymce-editor" name="content">{{ old('content') }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label class="text-muted">{{ __('Status') }}</label>
+                <select class="form-control" name="status">
+                    @foreach (\App\Models\Product::STATUS_TYPES as $status)
+                        <option value="{{ $status }}">{{ __($status) }}</option>    
+                    @endforeach
+                </select>
+                <x-admin.error name="status" />
             </div>
 
             <x-admin.submit back />
         </form>
     </div>
 
-    <x-admin.tinymce-config />
+    <x-slot name="script">
+        <x-admin.tinymce-config />
+    </x-slot>
 
 </x-admin-layout>

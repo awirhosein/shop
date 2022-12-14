@@ -1,8 +1,10 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\Product;
+use App\Enums\ProductStatus;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -18,7 +20,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug');
             $table->longText('content')->nullable();
-            $table->enum('status', ['draft', 'publish'])->default('draft');
+            $table->foreignId('category_id')->nullable();
+            $table->enum('status', Product::STATUS_TYPES)->default(ProductStatus::DRAFT);
             $table->timestamps();
             $table->softDeletes();
         });

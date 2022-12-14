@@ -7,11 +7,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ __('dashboard') }}</title>
 
-    <link rel="stylesheet" href="{{ asset('admin/fonts/fontawesome/all.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/fonts/iransans/font-face.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/css/bootstrap.min.css') }}">
+    <x-admin.styles />
 
-    @vite('resources/scss/admin.scss')
+    {{ $style }}
 </head>
 
 <body>
@@ -31,16 +29,9 @@
         </div>
     </div>
 
-
-    <script src="{{ asset('admin/js/jquery.min.js') }}"></script>
-    <script src="{{ asset('admin/js/popper.min.js') }}"></script>
-    <script src="{{ asset('admin/js/bootstrap.min.js') }}"></script>
+    <x-admin.scripts />
 
     {{ $script }}
-
-    @include('sweetalert::alert')
-
-    @vite('resources/js/admin.js')
 
 </body>
 </html>

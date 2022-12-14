@@ -45,6 +45,14 @@
                 </a>
             </li>
 
+            {{-- categories --}}
+            <li class="nav-item">
+                <a class="nav-link {{ Str::is('categories.*', $route) ? 'active' : '' }}" href="{{ route('admin.categories.index') }}">
+                    <i class="fa fa-users"></i>
+                    <span>{{ __('Categories') }}</span>
+                </a>
+            </li>
+
         </ul>
     </div>
 </nav>

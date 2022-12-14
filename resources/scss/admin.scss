@@ -6,7 +6,7 @@ html {
 body {
     font-size: 0.875rem;
     direction: rtl;
-    font-family: 'iransans';
+    font-family: "iransans";
     background-color: #f8f8f8;
 }
 
@@ -194,34 +194,6 @@ ul.pagination {
     padding: 0;
 }
 
-// .bootstrap-select {
-//     .dropdown-menu {
-//         max-width: 500px;
-//         box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-//         &.inner {
-//             text-align: right !important;
-//         }
-//         li a span.text {
-//             margin-right: 20px;
-//         }
-//         li {
-//             text-align: right;
-//         }
-//     }
-//     & > .dropdown-toggle {
-//         border: 1px solid #dee2e6 !important;
-//         background-color: transparent !important;
-//         color: #495057 !important;
-//         cursor: default !important;
-//     }
-//     .dropdown-toggle .filter-option {
-//         text-align: right;
-//     }
-//     .dropdown-toggle .filter-option-inner-inner {
-//         text-align: right;
-//     }
-// }
-
 .dropdown-menu {
     min-width: 130px;
     box-shadow: 0 5px 25px rgba(34, 41, 47, 0.1);
@@ -264,36 +236,7 @@ a:hover {
     }
 }
 
-// froala
-// ----------------------------------------
-a[href="https://www.froala.com/wysiwyg-editor?k=u"]
-{
-    cursor: default;
-    transform: rotateY(90deg);
-    height: 0;
-}
-.fr-element,
-.fr-element div,
-.fr-element h1,
-.fr-element h2,
-.fr-element h3,
-.fr-element h4,
-.fr-element h5,
-.fr-element h6,
-.fr-element p,
-.fr-element span {
-    font-family: sahel !important;
-}
-
-// sweet alert
-.swal2-container {
-    padding-left: 25px !important;
-    padding-bottom: 35px !important;
-}
-.swal2-title {
-    font-weight: normal !important;
-}
-.swal2-popup.swal2-toast .swal2-title {
-    font-size: 15px !important;
-    margin: 12px 1em !important;
-}
+// 
+//@import "bootstrap-select";
+@import "sweet-alert";
+@import "select2";
