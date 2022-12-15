@@ -32,10 +32,15 @@
             </div>
 
             <div class="form-group">
+                <label class="text-muted">{{ __('Image') }}</label>
+                <x-admin.file-manager.input :image="$product->image" />
+            </div>
+
+            <div class="form-group">
                 <label class="text-muted">{{ __('Status') }}</label>
                 <select class="form-control" name="status">
                     @foreach (\App\Models\Product::STATUS_TYPES as $status)
-                        <option value="{{ $status }}" {{ $product->status == $status ? 'selected' : '' }}>{{ __($status) }}</option>    
+                        <option value="{{ $status }}" {{ $product->status == $status ? 'selected' : '' }}>{{ __($status) }}</option>
                     @endforeach
                 </select>
                 <x-admin.error name="status" />
@@ -47,6 +52,7 @@
 
     <x-slot name="script">
         <x-admin.tinymce-config />
+        <x-admin.file-manager.script />
     </x-slot>
 
 </x-admin-layout>

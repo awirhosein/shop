@@ -17,8 +17,9 @@ class UpdateRequest extends FormRequest
     {
         return [
             'name' => ['required', 'min:3'],
-            'content' => ['nullable'],
             'category_id' => ['nullable'],
+            'content' => ['nullable'],
+            'image' => ['nullable', 'string'],
             'status' => ['required', Rule::in(Product::STATUS_TYPES)]
         ];
     }

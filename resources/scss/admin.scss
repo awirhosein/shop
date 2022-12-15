@@ -207,12 +207,14 @@ a:hover {
 .pointer {
     cursor: pointer;
 }
+.w-0 {
+    width: 0;
+}
 .w-max {
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
 }
-
 .w-max-0 {
     max-width: 0px;
 }
@@ -236,7 +238,7 @@ a:hover {
     }
 }
 
-// 
+//
 //@import "bootstrap-select";
 @import "sweet-alert";
 @import "select2";

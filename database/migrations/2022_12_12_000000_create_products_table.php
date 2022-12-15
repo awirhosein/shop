@@ -19,6 +19,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug')->nullable();
+            $table->string('image')->nullable();
             $table->longText('content')->nullable();
             $table->foreignId('category_id')->nullable();
             $table->enum('status', Product::STATUS_TYPES)->default(ProductStatus::DRAFT);

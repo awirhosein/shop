@@ -32,8 +32,8 @@ return [
 
         'file-manager' => [
             'driver' => 'local',
-            'root' => 'file-manager',
-            'url' => '/file-manager',
+            'root' => 'upload',
+            'url' => '/upload',
             'throw' => false,
         ],
 

@@ -17,17 +17,14 @@ class ProductController extends Controller
 
     public function create()
     {
-        $categories = Category::parents()->get();
+        $categories = Category::whereNotNull('parent_id')->get();
 
         return view('admin.pages.products.create', compact('categories'));
     }
 
     public function store(StoreRequest $request)
     {
-        $text = str()->lower($request->name);
-        $slug = str()->replace(' ', '-', $text);
-
-        Product::create($request->validated() + ['slug' => $slug]);
+        Product::create($request->validated() + ['slug' => $this->getSlug($request->name)]);
 
         toast(__('msg.success.create'), 'success');
 
@@ -36,17 +33,14 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
-        $categories = Category::parents()->get();
+        $categories = Category::whereNotNull('parent_id')->get();
 
         return view('admin.pages.products.edit', compact('product', 'categories'));
     }
 
     public function update(UpdateRequest $request, Product $product)
     {
-        $text = str()->lower($request->name);
-        $slug = str()->replace(' ', '-', $text);
-
-        $product->update($request->validated() + ['slug' => $slug]);
+        $product->update($request->validated() + ['slug' => $this->getSlug($request->name)]);
 
         toast(__('msg.success.update'), 'success');
 
@@ -60,5 +54,13 @@ class ProductController extends Controller
         toast(__('msg.success.delete'), 'success');
 
         return redirect()->back();
+    }
+
+    protected function getSlug($text): string
+    {
+        $lowerText = str()->lower($text);
+        $slug = str()->replace(' ', '-', $lowerText);
+
+        return $slug;
     }
 }
