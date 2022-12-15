@@ -30,6 +30,13 @@ return [
 
     'disks' => [
 
+        'file-manager' => [
+            'driver' => 'local',
+            'root' => 'file-manager',
+            'url' => '/file-manager',
+            'throw' => false,
+        ],
+
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
