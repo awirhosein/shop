@@ -40,7 +40,7 @@ class UserController extends Controller
         return view('admin.pages.members.users.edit', compact('user'));
     }
 
-    public function update(User $user, Request $request)
+    public function update(Request $request, User $user)
     {
         $validated = $request->validate([
             'name' => ['required'],

@@ -29,9 +29,7 @@ class CategoryController extends Controller
             'parent_id' => ['nullable'],
         ]);
 
-        $slug = str()->slug($request->name);
-
-        Category::create($validated + ['slug' => $slug]);
+        Category::create($validated + ['slug' => str()->slug($request->name)]);
 
         toast(__('msg.success.create'), 'success');
 
@@ -45,16 +43,14 @@ class CategoryController extends Controller
         return view('admin.pages.categories.edit', compact('category', 'parents'));
     }
 
-    public function update(Category $category, Request $request)
+    public function update(Request $request, Category $category)
     {
         $validated = $request->validate([
             'name' => ['required', 'min:3'],
             'parent_id' => ['nullable'],
         ]);
 
-        $slug = str()->slug($request->name);
-
-        $category->update($validated + ['slug' => $slug]);
+        $category->update($validated + ['slug' => str()->slug($request->name)]);
 
         toast(__('msg.success.update'), 'success');
 

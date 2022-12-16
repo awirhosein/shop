@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Category>
  */
-class CategoryFactory extends Factory
+class AttributeFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,8 +18,6 @@ class CategoryFactory extends Factory
     {
         return [
             'name' => $this->faker->sentence(rand(1, 3)),
-            'slug' => $this->faker->sentence(rand(1, 3)),
-            'parent_id' => rand(1, 10)
         ];
     }
 }

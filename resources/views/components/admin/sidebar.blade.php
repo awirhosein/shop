@@ -53,6 +53,14 @@
                 </a>
             </li>
 
+            {{-- attributes --}}
+            <li class="nav-item">
+                <a class="nav-link {{ Str::is('attributes.*', $route) ? 'active' : '' }}" href="{{ route('admin.attributes.index') }}">
+                    <i class="fa fa-users"></i>
+                    <span>{{ __('Attributes') }}</span>
+                </a>
+            </li>
+
         </ul>
     </div>
 </nav>
