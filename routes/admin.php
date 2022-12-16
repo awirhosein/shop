@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\{AttributeController, ProductController, CategoryController};
+use App\Http\Controllers\Admin\{AttributeController, ProductController, CategoryController, ColorController};
 use App\Http\Controllers\Admin\Members\{UserController, AdminController};
 
 
@@ -34,4 +34,8 @@ Route::as('admin.')->group(function () {
     // attributes
     Route::resource('attributes', AttributeController::class)->only(['create', 'edit'])->middleware('back_url');
     Route::resource('attributes', AttributeController::class)->except(['create', 'edit', 'show']);
+
+    // colors
+    Route::resource('colors', ColorController::class)->only(['create', 'edit'])->middleware('back_url');
+    Route::resource('colors', ColorController::class)->except(['create', 'edit', 'show']);
 });

@@ -40,7 +40,7 @@
             {{-- products --}}
             <li class="nav-item">
                 <a class="nav-link {{ Str::is('products.*', $route) ? 'active' : '' }}" href="{{ route('admin.products.index') }}">
-                    <i class="fa fa-users"></i>
+                    <i class="fas fa-shop"></i>
                     <span>{{ __('Products') }}</span>
                 </a>
             </li>
@@ -48,7 +48,7 @@
             {{-- categories --}}
             <li class="nav-item">
                 <a class="nav-link {{ Str::is('categories.*', $route) ? 'active' : '' }}" href="{{ route('admin.categories.index') }}">
-                    <i class="fa fa-users"></i>
+                    <i class="fa fa-list"></i>
                     <span>{{ __('Categories') }}</span>
                 </a>
             </li>
@@ -56,8 +56,16 @@
             {{-- attributes --}}
             <li class="nav-item">
                 <a class="nav-link {{ Str::is('attributes.*', $route) ? 'active' : '' }}" href="{{ route('admin.attributes.index') }}">
-                    <i class="fa fa-users"></i>
+                    <i class="fas fa-star"></i>
                     <span>{{ __('Attributes') }}</span>
+                </a>
+            </li>
+            
+            {{-- colors --}}
+            <li class="nav-item">
+                <a class="nav-link {{ Str::is('colors.*', $route) ? 'active' : '' }}" href="{{ route('admin.colors.index') }}">
+                    <i class="fa-solid fa-palette"></i>
+                    <span>{{ __('Colors') }}</span>
                 </a>
             </li>
 

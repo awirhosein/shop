@@ -57,12 +57,6 @@ class AttributeController extends Controller
         return redirect_back('admin.attributes.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Attribute  $attribute
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Attribute $attribute)
     {
         $attribute->delete();

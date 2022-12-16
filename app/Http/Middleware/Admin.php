@@ -19,6 +19,7 @@ class Admin
     {
         if (!Auth::user()->is_admin()) abort(403);
 
+        // TODO: issue with store method
         if (session('back_url') == url()->full()) {
             session()->forget('back_url');
         }
