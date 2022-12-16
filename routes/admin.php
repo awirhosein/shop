@@ -23,6 +23,10 @@ Route::as('admin.')->group(function () {
     Route::resource('products', ProductController::class)->only(['create', 'edit'])->middleware('back_url');
     Route::resource('products', ProductController::class)->except(['create', 'edit', 'show']);
 
+    // products : attributes
+    Route::get('products/{product}/attributes', [ProductController::class, 'attribute'])->name('products.attributes.edit')->middleware('back_url');
+    Route::put('products/{product}/attributes', [ProductController::class, 'attributeUpdate'])->name('products.attributes.update');
+
     // categories
     Route::resource('categories', CategoryController::class)->only(['create', 'edit'])->middleware('back_url');
     Route::resource('categories', CategoryController::class)->except(['create', 'edit', 'show']);

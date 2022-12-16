@@ -28,7 +28,11 @@
                     <td>{{ $product->category?->name }}</td>
                     <td>{{ __($product->status) }}</td>
                     <td class="text-left">
-                        <x-admin.dropdown :edit="route('admin.products.edit', $product->id)" :delete="route('admin.products.destroy', $product->id)" />
+                        <x-admin.dropdown 
+                            :edit="route('admin.products.edit', $product->id)"
+                            :attribute="route('admin.products.attributes.edit', $product->id)"
+                            :delete="route('admin.products.destroy', $product->id)"
+                        />
                     </td>
                 </tr>
             @endforeach
