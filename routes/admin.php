@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Members\{UserController, AdminController};
 use App\Http\Controllers\Admin\{AttributeController, CategoryController, ColorController};
-use App\Http\Controllers\Admin\Products\{ProductController, ProductAttributeController};
+use App\Http\Controllers\Admin\Products\{ProductController, ProductAttributeController, ProductColorController};
 
 Route::as('admin.')->group(function () {
 
@@ -27,6 +27,10 @@ Route::as('admin.')->group(function () {
         // attributes
         Route::get('products/{product}/attributes', [ProductAttributeController::class, 'attribute'])->name('products.attributes.edit')->middleware('back_url');
         Route::put('products/{product}/attributes', [ProductAttributeController::class, 'attributeUpdate'])->name('products.attributes.update');
+
+        // color and price
+        Route::resource('products.colors', ProductColorController::class)->only(['create', 'edit'])->middleware('back_url');
+        Route::resource('products.colors', ProductColorController::class)->except(['create', 'edit', 'show']);
     });
 
     // categories

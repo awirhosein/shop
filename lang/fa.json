@@ -154,10 +154,12 @@
     "Published": "منتشر شده",
     "Archived": "آرشیو شده",
     "Image": "تصویر",
-    "Select": "انتخاب",
+    "Select": "انتخاب کنید",
     "Attribute": "ویژگی",
     "Attributes": "ویژگی ها",
     "ProductAttributes": "ویژگی های محصول",
     "Colors": "رنگ ها",
-    "Color": "رنگ"
+    "Color": "رنگ",
+    "And": "و",
+    "Price": "قیمت"
 }

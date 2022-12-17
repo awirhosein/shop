@@ -30,6 +30,6 @@ class Attribute extends Model
 
     public function products()
     {
-        return $this->belongsToMany(Product::class, 'product_attribute')->withTimestamps()->withPivot('value');
+        return $this->belongsToMany(Product::class, 'product_attribute')->withPivot('value')->withTimestamps();
     }
 }

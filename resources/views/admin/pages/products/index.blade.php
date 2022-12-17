@@ -1,25 +1,9 @@
 <x-admin-layout>
-
-    <div class="d-flex">
-        <div>
-            <span class="font-weight-bold" style="font-size:22px">{{ __('Products') }}</span>
-        </div>
-        <div class="pr-2">
-            <a href="{{ route('admin.products.create') }}" class="btn btn-sm btn-outline-info">
-                <span style="font-size:12px">{{ __('Add') }}</span>
-            </a>
-        </div>
-    </div>
+    <x-admin.index-header title="Products" :create="route('admin.products.create')" />
 
     <div class="index-page">
         <table class="table-hover table">
-            <tr>
-                <th>#</th>
-                <th>{{ __('Name') }}</th>
-                <th>{{ __('Category') }}</th>
-                <th>{{ __('Status') }}</th>
-                <th></th>
-            </tr>
+            <x-admin.table-row :fields="$fields" />
 
             @foreach ($products as $product)
                 <tr>
@@ -28,22 +12,17 @@
                     <td>{{ $product->category?->name }}</td>
                     <td>{{ __($product->status) }}</td>
                     <td class="text-left">
-                        <x-admin.dropdown 
-                            :edit="route('admin.products.edit', $product->id)"
-                            :attribute="route('admin.products.attributes.edit', $product->id)"
-                            :delete="route('admin.products.destroy', $product->id)"
+                        <x-admin.dropdown
+                            :color="route('admin.products.colors.index', $product)"
+                            :attribute="route('admin.products.attributes.edit', $product)"
+                            :edit="route('admin.products.edit', $product)"
+                            :delete="route('admin.products.destroy', $product)"
                         />
                     </td>
                 </tr>
             @endforeach
 
-            <tr class="border-top">
-                <th>#</th>
-                <th>{{ __('Name') }}</th>
-                <th>{{ __('Category') }}</th>
-                <th>{{ __('Status') }}</th>
-                <th></th>
-            </tr>
+            <x-admin.table-row :fields="$fields" class="border-top" />
         </table>
     </div>
 
