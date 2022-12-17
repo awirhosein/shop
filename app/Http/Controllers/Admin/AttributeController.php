@@ -12,7 +12,9 @@ class AttributeController extends Controller
     {
         $attributes = Attribute::latest()->paginate(config('custom.per_page'));
 
-        return view('admin.pages.attributes.index', compact('attributes'));
+        return view('admin.pages.attributes.index', compact('attributes'), [
+            'fields' => ['Name', 'Category']
+        ]);
     }
 
     public function create()

@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\{AttributeController, ProductController, CategoryController, ColorController};
 use App\Http\Controllers\Admin\Members\{UserController, AdminController};
-
+use App\Http\Controllers\Admin\{AttributeController, CategoryController, ColorController};
+use App\Http\Controllers\Admin\Products\{ProductController, ProductAttributeController};
 
 Route::as('admin.')->group(function () {
 
@@ -20,12 +20,14 @@ Route::as('admin.')->group(function () {
     });
 
     // products
-    Route::resource('products', ProductController::class)->only(['create', 'edit'])->middleware('back_url');
-    Route::resource('products', ProductController::class)->except(['create', 'edit', 'show']);
+    Route::group([], function () {
+        Route::resource('products', ProductController::class)->only(['create', 'edit'])->middleware('back_url');
+        Route::resource('products', ProductController::class)->except(['create', 'edit', 'show']);
 
-    // products : attributes
-    Route::get('products/{product}/attributes', [ProductController::class, 'attribute'])->name('products.attributes.edit')->middleware('back_url');
-    Route::put('products/{product}/attributes', [ProductController::class, 'attributeUpdate'])->name('products.attributes.update');
+        // attributes
+        Route::get('products/{product}/attributes', [ProductAttributeController::class, 'attribute'])->name('products.attributes.edit')->middleware('back_url');
+        Route::put('products/{product}/attributes', [ProductAttributeController::class, 'attributeUpdate'])->name('products.attributes.update');
+    });
 
     // categories
     Route::resource('categories', CategoryController::class)->only(['create', 'edit'])->middleware('back_url');

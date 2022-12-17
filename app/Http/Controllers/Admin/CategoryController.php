@@ -12,7 +12,9 @@ class CategoryController extends Controller
     {
         $categories = Category::latest()->paginate(config('custom.per_page'));
 
-        return view('admin.pages.categories.index', compact('categories'));
+        return view('admin.pages.categories.index', compact('categories'), [
+            'fields' => ['Name', 'Parent Category']
+        ]);
     }
 
     public function create()

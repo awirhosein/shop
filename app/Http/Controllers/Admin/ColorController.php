@@ -13,7 +13,9 @@ class ColorController extends Controller
     {
         $colors = Color::latest()->paginate(config('custom.per_page'));
 
-        return view('admin.pages.colors.index', compact('colors'));
+        return view('admin.pages.colors.index', compact('colors'), [
+            'fields' => ['', 'Name', 'Code']
+        ]);
     }
 
     public function create()

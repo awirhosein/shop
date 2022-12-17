@@ -1,25 +1,9 @@
 <x-admin-layout>
-
-    <div class="d-flex">
-        <div>
-            <span class="font-weight-bold" style="font-size:22px">{{ __('Users') }}</span>
-        </div>
-        <div class="pr-2">
-            <a href="{{ route('admin.users.create') }}" class="btn btn-sm btn-outline-info">
-                <span style="font-size:12px">{{ __('Add') }}</span>
-            </a>
-        </div>
-    </div>
+    <x-admin.index-header title="Users" :create="route('admin.users.create')" />
 
     <div class="index-page">
         <table class="table-hover table">
-            <tr>
-                <th>#</th>
-                <th>{{ __('Name') }}</th>
-                <th>{{ __('Email') }}</th>
-                <th>{{ __('Registration Date') }}</th>
-                <th></th>
-            </tr>
+            <x-admin.table-row :fields="$fields" />
 
             @foreach ($users as $user)
                 <tr>
@@ -28,18 +12,15 @@
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->created_at }}</td>
                     <td class="text-left">
-                        <x-admin.dropdown :edit="route('admin.users.edit', $user->id)" :delete="route('admin.users.destroy', $user->id)" />
+                        <x-admin.dropdown
+                            :edit="route('admin.users.edit', $user->id)"
+                            :delete="route('admin.users.destroy', $user->id)"
+                        />
                     </td>
                 </tr>
             @endforeach
 
-            <tr class="border-top">
-                <th>#</th>
-                <th>{{ __('Name') }}</th>
-                <th>{{ __('Email') }}</th>
-                <th>{{ __('Registration Date') }}</th>
-                <th></th>
-            </tr>
+            <x-admin.table-row :fields="$fields" class="border-top" />
         </table>
     </div>
 

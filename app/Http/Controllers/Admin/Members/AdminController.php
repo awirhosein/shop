@@ -11,6 +11,8 @@ class AdminController extends Controller
     {
         $admins = User::isAdmin()->latest()->paginate(config('custom.per_page'));
 
-        return view('admin.pages.members.admins.index', compact('admins'));
+        return view('admin.pages.members.admins.index', compact('admins'), [
+            'fields' => ['Name', 'Email', 'Registration Date']
+        ]);
     }
 }

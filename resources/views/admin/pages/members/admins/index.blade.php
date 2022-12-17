@@ -1,17 +1,9 @@
 <x-admin-layout>
-    <div>
-        <span class="font-weight-bold" style="font-size:22px">{{ __('Admins') }}</span>
-    </div>
+    <x-admin.index-header title="Admins" />
 
     <div class="index-page">
         <table class="table-hover table">
-            <tr>
-                <th>#</th>
-                <th>{{ __('Name') }}</th>
-                <th>{{ __('Email') }}</th>
-                <th>{{ __('Registration Date') }}</th>
-                <th></th>
-            </tr>
+            <x-admin.table-row :fields="$fields" />
 
             @foreach ($admins as $admin)
                 <tr>
@@ -25,13 +17,7 @@
                 </tr>
             @endforeach
 
-            <tr class="border-top">
-                <th>#</th>
-                <th>{{ __('Name') }}</th>
-                <th>{{ __('Email') }}</th>
-                <th>{{ __('Registration Date') }}</th>
-                <th></th>
-            </tr>
+            <x-admin.table-row :fields="$fields" class="border-top" />
         </table>
     </div>
 

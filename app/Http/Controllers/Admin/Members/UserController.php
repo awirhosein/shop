@@ -14,7 +14,9 @@ class UserController extends Controller
     {
         $users = User::isUser()->latest()->paginate(config('custom.per_page'));
 
-        return view('admin.pages.members.users.index', compact('users'));
+        return view('admin.pages.members.users.index', compact('users'), [
+            'fields' => ['Name', 'Email', 'Registration Date']
+        ]);
     }
 
     public function create()
