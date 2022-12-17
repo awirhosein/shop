@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{ asset('admin/fonts/fontawesome/all.min.css') }}">
+<link rel="stylesheet" href="{{ asset('admin/fonts/fontawesome6/pro/all.css') }}">
 <link rel="stylesheet" href="{{ asset('admin/fonts/iransans/font-face.css') }}">
 <link rel="stylesheet" href="{{ asset('admin/css/bootstrap.min.css') }}">
 

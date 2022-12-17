@@ -7,7 +7,7 @@
             {{-- dashboard --}}
             <li class="nav-item">
                 <a class="nav-link {{ $route == 'dashboard' ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
-                    <i class="fa fa-home"></i>
+                    <i class="fa-duotone fa-house-chimney"></i>
                     <span>{{ __('Dashboard') }}</span>
                 </a>
             </li>
@@ -24,14 +24,14 @@
                 {{-- users --}}
                 <li class="nav-item">
                     <a class="nav-link {{ Str::is('users.*', $route) ? 'active' : '' }}" href="{{ route('admin.users.index') }}">
-                        <i class="fa fa-users"></i>
+                        <i class="fa-duotone fa-users"></i>
                         <span>{{ __('Users') }}</span>
                     </a>
                 </li>
                 {{-- admins --}}
                 <li class="nav-item">
                     <a class="nav-link {{ Str::is('admins.*', $route) ? 'active' : '' }}" href="{{ route('admin.admins.index') }}">
-                        <i class="fa fa-users"></i>
+                        <i class="fa-solid fa-users-gear"></i>
                         <span>{{ __('Admins') }}</span>
                     </a>
                 </li>
@@ -40,7 +40,7 @@
             {{-- products --}}
             <li class="nav-item">
                 <a class="nav-link {{ Str::is('products.*', $route) ? 'active' : '' }}" href="{{ route('admin.products.index') }}">
-                    <i class="fas fa-shop"></i>
+                    <i class="fa-duotone fa-cart-shopping"></i>
                     <span>{{ __('Products') }}</span>
                 </a>
             </li>
@@ -48,7 +48,7 @@
             {{-- categories --}}
             <li class="nav-item">
                 <a class="nav-link {{ Str::is('categories.*', $route) ? 'active' : '' }}" href="{{ route('admin.categories.index') }}">
-                    <i class="fa fa-list"></i>
+                    <i class="fa-duotone fa-list"></i>
                     <span>{{ __('Categories') }}</span>
                 </a>
             </li>
@@ -56,7 +56,7 @@
             {{-- attributes --}}
             <li class="nav-item">
                 <a class="nav-link {{ Str::is('attributes.*', $route) ? 'active' : '' }}" href="{{ route('admin.attributes.index') }}">
-                    <i class="fas fa-star"></i>
+                    <i class="fa-duotone fa-stars"></i>
                     <span>{{ __('Attributes') }}</span>
                 </a>
             </li>
@@ -64,7 +64,7 @@
             {{-- colors --}}
             <li class="nav-item">
                 <a class="nav-link {{ Str::is('colors.*', $route) ? 'active' : '' }}" href="{{ route('admin.colors.index') }}">
-                    <i class="fa-solid fa-palette"></i>
+                    <i class="fa-duotone fa-palette"></i>
                     <span>{{ __('Colors') }}</span>
                 </a>
             </li>
