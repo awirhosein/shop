@@ -12,8 +12,8 @@
                     <td>{{ $attribute->category?->name }}</td>
                     <td class="text-left">
                         <x-admin.dropdown
-                            :edit="route('admin.attributes.edit', $attribute->id)"
-                            :delete="route('admin.attributes.destroy', $attribute->id)"
+                            :edit="route('admin.attributes.edit', $attribute)"
+                            :delete="route('admin.attributes.destroy', $attribute)"
                         />
                     </td>
                 </tr>

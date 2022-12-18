@@ -19,7 +19,7 @@
                 <select class="select2 form-control" name="category_id">
                     <option value="">انتخاب کنید</option>
                     @foreach ($categories as $cat)
-                        <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                        <option value="{{ $cat->id }}" @selected($cat->id == old('category_id'))>{{ $cat->name }}</option>
                     @endforeach
                 </select>
                 <x-admin.error name="category_id" />
@@ -39,7 +39,7 @@
                 <label class="text-muted">{{ __('Status') }}</label>
                 <select class="form-control" name="status">
                     @foreach (\App\Models\Product::STATUS_TYPES as $status)
-                        <option value="{{ $status }}">{{ __($status) }}</option>    
+                        <option value="{{ $status }}" @selected($status == old('status'))>{{ __($status) }}</option>
                     @endforeach
                 </select>
                 <x-admin.error name="status" />

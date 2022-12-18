@@ -13,8 +13,8 @@
                     <td>{{ $user->created_at }}</td>
                     <td class="text-left">
                         <x-admin.dropdown
-                            :edit="route('admin.users.edit', $user->id)"
-                            :delete="route('admin.users.destroy', $user->id)"
+                            :edit="route('admin.users.edit', $user)"
+                            :delete="route('admin.users.destroy', $user)"
                         />
                     </td>
                 </tr>

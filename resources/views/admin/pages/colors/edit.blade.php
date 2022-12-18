@@ -5,7 +5,7 @@
             <span>{{ hybrid_trans('Edit Color') }}</span>
         </h6>
 
-        <form action="{{ route('admin.colors.update', $color->id) }}" method="POST">
+        <form action="{{ route('admin.colors.update', $color) }}" method="POST">
             @csrf
             @method('PUT')
 

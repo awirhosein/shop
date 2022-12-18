@@ -5,7 +5,7 @@
             <span>{{ hybrid_trans('Edit Category') }}</span>
         </h6>
 
-        <form action="{{ route('admin.categories.update', $category->id) }}" method="POST">
+        <form action="{{ route('admin.categories.update', $category) }}" method="POST">
             @csrf
             @method('PUT')
 
@@ -20,7 +20,7 @@
                 <select id="select2" class="form-control" name="parent_id">
                     <option value="">انتخاب کنید</option>
                     @foreach ($parents as $item)
-                        <option value="{{ $item->id }}" {{ $category->parent_id == $item->id ? 'selected' : '' }}>{{ $item->name }}</option>
+                        <option value="{{ $item->id }}" @selected($item->id == old('parent_id', $category->parent_id))>{{ $item->name }}</option>
                     @endforeach
                 </select>
                 <x-admin.error name="parent_id" />
@@ -29,5 +29,5 @@
             <x-admin.submit back />
         </form>
     </div>
- 
+
 </x-admin-layout>

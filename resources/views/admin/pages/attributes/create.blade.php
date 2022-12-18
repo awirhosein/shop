@@ -18,8 +18,8 @@
                 <label class="text-muted">{{ __('Category') }}</label>
                 <select id="select2" class="form-control" name="category_id">
                     <option value="">انتخاب کنید</option>
-                    @foreach ($categories as $item)
-                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                    @foreach ($categories as $cat)
+                        <option value="{{ $cat->id }}" @selected($cat->id == old('category_id'))>{{ $cat->name }}</option>
                     @endforeach
                 </select>
                 <x-admin.error name="category_id" />

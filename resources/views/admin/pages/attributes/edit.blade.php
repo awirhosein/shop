@@ -5,7 +5,7 @@
             <span>{{ hybrid_trans('Edit Attribute') }}</span>
         </h6>
 
-        <form action="{{ route('admin.attributes.update', $attribute->id) }}" method="POST">
+        <form action="{{ route('admin.attributes.update', $attribute) }}" method="POST">
             @csrf
             @method('PUT')
 
@@ -19,8 +19,8 @@
                 <label class="text-muted">{{ __('Category') }}</label>
                 <select id="select2" class="form-control" name="category_id">
                     <option value="">انتخاب کنید</option>
-                    @foreach ($categories as $item)
-                        <option value="{{ $item->id }}" {{ $attribute->category_id == $item->id ? 'selected' : '' }}>{{ $item->name }}</option>
+                    @foreach ($categories as $cat)
+                        <option value="{{ $cat->id }}" @selected($cat->id == old('category_id', $attribute->category_id))>{{ $cat->name }}</option>
                     @endforeach
                 </select>
                 <x-admin.error name="category_id" />

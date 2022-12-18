@@ -19,7 +19,7 @@
                 <select id="select2" class="form-control" name="parent_id">
                     <option value="">انتخاب کنید</option>
                     @foreach ($parents as $item)
-                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                        <option value="{{ $item->id }}" @selected($item->id == old('parent_id'))>{{ $item->name }}</option>
                     @endforeach
                 </select>
                 <x-admin.error name="parent_id" />

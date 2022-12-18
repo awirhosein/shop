@@ -12,6 +12,6 @@
 
 <div class="row mt-4">
     <div class="col-3">
-        <img src="{{ $image }}" class="w-100 rounded" id="image-preview">
+        <img src="{{ old($name, $image) }}" class="w-100 rounded" id="image-preview">
     </div>
 </div>

@@ -5,7 +5,7 @@
             <span>{{ hybrid_trans('Edit Product') }}</span>
         </h6>
 
-        <form action="{{ route('admin.products.update', $product->id) }}" method="POST">
+        <form action="{{ route('admin.products.update', $product) }}" method="POST">
             @csrf
             @method('PUT')
 
@@ -20,7 +20,7 @@
                 <select class="select2 form-control" name="category_id">
                     <option value="">انتخاب کنید</option>
                     @foreach ($categories as $cat)
-                        <option value="{{ $cat->id }}" {{ $product->category_id == $cat->id ? 'selected' : '' }}>{{ $cat->name }}</option>
+                        <option value="{{ $cat->id }}" @selected($cat->id == old('category_id', $product->category_id))>{{ $cat->name }}</option>
                     @endforeach
                 </select>
                 <x-admin.error name="category_id" />
@@ -40,7 +40,7 @@
                 <label class="text-muted">{{ __('Status') }}</label>
                 <select class="form-control" name="status">
                     @foreach (\App\Models\Product::STATUS_TYPES as $status)
-                        <option value="{{ $status }}" {{ $product->status == $status ? 'selected' : '' }}>{{ __($status) }}</option>
+                        <option value="{{ $status }}" @selected($status == old('status', $product->status))>{{ __($status) }}</option>
                     @endforeach
                 </select>
                 <x-admin.error name="status" />

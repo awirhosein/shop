@@ -15,8 +15,8 @@
                     <td dir="ltr">{{ $color->code }}</td>
                     <td class="text-left">
                         <x-admin.dropdown
-                            :edit="route('admin.colors.edit', $color->id)"
-                            :delete="route('admin.colors.destroy', $color->id)"
+                            :edit="route('admin.colors.edit', $color)"
+                            :delete="route('admin.colors.destroy', $color)"
                         />
                     </td>
                 </tr>

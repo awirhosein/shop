@@ -14,7 +14,7 @@
                 <select class="select2 form-control" name="color_id">
                     <option value="">{{ __('Select') }}</option>
                     @foreach ($colors as $color)
-                        <option value="{{ $color->id }}" {{ $color->id == old('color_id', $colorProduct->color_id) ? 'selected' : '' }}>{{ $color->name }}</option>
+                        <option value="{{ $color->id }}" @selected($color->id == old('color_id', $colorProduct->color_id))>{{ $color->name }}</option>
                     @endforeach
                 </select>
                 <x-admin.error name="color_id" />
@@ -22,12 +22,12 @@
 
             <div class="form-group">
                 <label class="text-muted">{{ __('Price') }}</label>
-                <input type="text" class="form-control" name="price" value="{{ $colorProduct->price }}">
+                <input type="text" class="form-control" name="price" value="{{ old('price', $colorProduct->price) }}">
                 <x-admin.error name="price" />
             </div>
 
             <x-admin.submit back />
         </form>
     </div>
-    
+
 </x-admin-layout>
