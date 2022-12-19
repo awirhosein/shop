@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Members\{UserController, AdminController};
-use App\Http\Controllers\Admin\{AttributeController, CategoryController, ColorController};
+use App\Http\Controllers\Admin\{AttributeController, CategoryController, ColorController, CommentController};
 use App\Http\Controllers\Admin\Products\{ProductController, ProductAttributeController, ProductColorController};
 
 Route::as('admin.')->group(function () {
@@ -44,4 +44,8 @@ Route::as('admin.')->group(function () {
     // colors
     Route::resource('colors', ColorController::class)->only(['create', 'edit'])->middleware('back_url');
     Route::resource('colors', ColorController::class)->except(['create', 'edit', 'show']);
+    
+    // comments
+    Route::resource('comments', CommentController::class)->only('edit')->middleware('back_url');
+    Route::resource('comments', CommentController::class)->except(['create', 'edit', 'show']);
 });

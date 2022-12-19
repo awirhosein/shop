@@ -48,4 +48,9 @@ class Product extends Model
     {
         return $this->belongsToMany(Color::class, 'product_color')->withPivot('id', 'price')->withTimestamps();
     }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
 }

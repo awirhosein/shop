@@ -27,6 +27,7 @@
 
             <x-admin.sidebar-item title="Colors" :link="route('admin.colors.index')" icon="fad fa-palette" active="colors.*" />
 
+            <x-admin.sidebar-item title="Comments" :link="route('admin.comments.index')" icon="fad fa-comments" active="comments.*" />
         </ul>
     </div>
 </nav>

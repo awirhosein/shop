@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Category>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Comment>
  */
-class AttributeFactory extends Factory
+class CommentFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,8 +17,8 @@ class AttributeFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->sentence(rand(1, 3)),
-            'category_id' => rand(1, 10)
+            'user_id' => rand(1, 50),
+            'text' => $this->faker->text()
         ];
     }
 }

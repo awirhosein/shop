@@ -161,5 +161,10 @@
     "Colors": "رنگ ها",
     "Color": "رنگ",
     "And": "و",
-    "Price": "قیمت"
+    "Price": "قیمت",
+    "Comments": "نظرات",
+    "Comment": "نظر",
+    "Text": "متن",
+    "Approved": "تایید شده",
+    "Unapproved": "تایید نشده"
 }
