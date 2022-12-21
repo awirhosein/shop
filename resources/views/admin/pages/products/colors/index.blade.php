@@ -9,7 +9,7 @@
                 <tr>
                     <td class="font-weight-bold w-0">{{ $color->pivot->id }}</td>
                     <td>{{ $color->name }}</td>
-                    <td>{{ $color->pivot->price }}</td>
+                    <td>{{ number_format($color->pivot->price) }}</td>
                     <td class="text-left">
                         <x-admin.dropdown
                             :edit="route('admin.products.colors.edit', [$product, $color->pivot])"

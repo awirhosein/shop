@@ -16,9 +16,11 @@ class CategoryFactory extends Factory
      */
     public function definition()
     {
+        $name = $this->faker->sentence(rand(1, 3));
+
         return [
-            'name' => $this->faker->sentence(rand(1, 3)),
-            'slug' => $this->faker->sentence(rand(1, 3)),
+            'name' => $name,
+            'slug' => str()->slug($name),
             'parent_id' => rand(1, 10)
         ];
     }
