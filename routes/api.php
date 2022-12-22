@@ -20,8 +20,13 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
+// Category
 Route::get('categories', [Api\CategoryController::class, 'index']);
 
+// Product
 Route::get('category/{category:slug}', [Api\ProductController::class, 'index']);
 Route::get('product/{product:slug}', [Api\ProductController::class, 'show']);
-Route::get('product/{product:slug}/comments', [Api\ProductController::class, 'comments']);
+
+// Comment
+Route::get('product/{product:slug}/comments', [Api\CommentController::class, 'index']);
+Route::post('product/{product:slug}/comments', [Api\CommentController::class, 'store']);
