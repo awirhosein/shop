@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\ProductStatus;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -22,6 +23,7 @@ class ProductFactory extends Factory
             'name' => $name,
             'slug' => str()->slug($name),
             'content' => $this->faker->sentence(),
+            'status' => ProductStatus::PUBLISHED
         ];
     }
 }

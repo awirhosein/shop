@@ -10,13 +10,8 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::parents()->get();
 
         return CategoryResource::collection($categories);
-    }
-
-    public function show(Category $category)
-    {
-        return new CategoryResource($category);
     }
 }

@@ -1,36 +1,33 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\Members\{UserController, AdminController};
-use App\Http\Controllers\Admin\{AttributeController, CategoryController, ColorController, CommentController};
-use App\Http\Controllers\Admin\Products\{ProductController, ProductAttributeController, ProductColorController};
 
-Route::as('admin.')->group(function () {
+Route::namespace('App\Http\Controllers\Admin')->as('admin.')->group(function () {
 
     Route::view('dashboard', 'admin.pages.index')->name('dashboard');
 
     // members
     Route::group([], function () {
         // users
-        Route::resource('users', UserController::class)->only(['create', 'edit'])->middleware('back_url');
-        Route::resource('users', UserController::class)->except(['create', 'edit', 'show']);
+        Route::resource('users', Members\UserController::class)->only(['create', 'edit'])->middleware('back_url');
+        Route::resource('users', Members\UserController::class)->except(['create', 'edit', 'show']);
 
         // admins
-        Route::get('admins', [AdminController::class, 'index'])->name('admins.index');
+        Route::get('admins', [Members\AdminController::class, 'index'])->name('admins.index');
     });
 
     // products
     Route::group([], function () {
-        Route::resource('products', ProductController::class)->only(['create', 'edit'])->middleware('back_url');
-        Route::resource('products', ProductController::class)->except(['create', 'edit', 'show']);
+        Route::resource('products', Products\ProductController::class)->only(['create', 'edit'])->middleware('back_url');
+        Route::resource('products', Products\ProductController::class)->except(['create', 'edit', 'show']);
 
         // attributes
-        Route::get('products/{product}/attributes', [ProductAttributeController::class, 'attribute'])->name('products.attributes.edit')->middleware('back_url');
-        Route::put('products/{product}/attributes', [ProductAttributeController::class, 'attributeUpdate'])->name('products.attributes.update');
+        Route::get('products/{product}/attributes', [Products\ProductAttributeController::class, 'attribute'])->name('products.attributes.edit')->middleware('back_url');
+        Route::put('products/{product}/attributes', [Products\ProductAttributeController::class, 'attributeUpdate'])->name('products.attributes.update');
 
         // color and price
-        Route::resource('products.colors', ProductColorController::class)->only(['create', 'edit'])->middleware('back_url');
-        Route::resource('products.colors', ProductColorController::class)->except(['create', 'edit', 'show']);
+        Route::resource('products.colors', Products\ProductColorController::class)->only(['create', 'edit'])->middleware('back_url');
+        Route::resource('products.colors', Products\ProductColorController::class)->except(['create', 'edit', 'show']);
     });
 
     // categories
@@ -44,7 +41,7 @@ Route::as('admin.')->group(function () {
     // colors
     Route::resource('colors', ColorController::class)->only(['create', 'edit'])->middleware('back_url');
     Route::resource('colors', ColorController::class)->except(['create', 'edit', 'show']);
-    
+
     // comments
     Route::resource('comments', CommentController::class)->only('edit')->middleware('back_url');
     Route::resource('comments', CommentController::class)->except(['create', 'edit', 'show']);

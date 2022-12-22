@@ -32,6 +32,14 @@ class Product extends Model
     ];
 
     /**
+     * Scope
+     */
+    public function scopePublished($query) 
+    {
+        return $query->where('status', ProductStatus::PUBLISHED);
+    }
+
+    /**
      * Relations
      */
     public function category()
