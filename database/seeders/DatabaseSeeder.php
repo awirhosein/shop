@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
         User::factory(50)->create();
         Category::factory(10)->has(Attribute::factory(rand(2, 5)))->create(['parent_id' => null]);
         Category::factory(20)
-            ->has(Product::factory(rand(2, 5))->has(Comment::factory()))->create();
+            ->has(Product::factory(rand(2, 5))->has(Comment::factory(rand(2, 5))))->create();
         Color::factory(20)->create();
     }
 }

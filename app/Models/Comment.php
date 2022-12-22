@@ -20,6 +20,14 @@ class Comment extends Model
     ];
 
     /**
+     * Scope
+     */
+    public function scopeApproved($query)
+    {
+        return $query->whereNotNull('approved_at');
+    }
+
+    /**
      * Relation
      */
     public function commentable()

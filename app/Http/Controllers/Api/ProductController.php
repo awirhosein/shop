@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Product;
-use App\Models\Category;
+use App\Models\{Product, Category};
 use App\Http\Controllers\Controller;
-use App\Http\Resources\ProductResource;
+use App\Http\Resources\Comment\Comment as CommentResource;
+use App\Http\Resources\Product\Product as ProductResource;
 
 class ProductController extends Controller
 {
@@ -15,9 +15,16 @@ class ProductController extends Controller
 
         return ProductResource::collection($products);
     }
-
+    
     public function show(Product $product)
     {
         return new ProductResource($product);
+    }
+
+    public function comments(Product $product)
+    {
+        $comments = $product->comments()->approved()->get();
+
+        return CommentResource::collection($comments);
     }
 }

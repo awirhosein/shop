@@ -18,7 +18,8 @@ class CommentFactory extends Factory
     {
         return [
             'user_id' => rand(1, 50),
-            'text' => $this->faker->text()
+            'text' => $this->faker->text(),
+            'approved_at' => now()
         ];
     }
 }

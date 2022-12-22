@@ -51,4 +51,17 @@ class Category extends Model
     {
         return $this->hasMany(Attribute::class);
     }
+
+    /**
+     * etc
+     */
+    public function is_parent(): bool
+    {
+        return !$this->parent_id;
+    }
+
+    public function is_child(): bool
+    {
+        return (bool)$this->parent_id;
+    }
 }

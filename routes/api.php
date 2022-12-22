@@ -21,5 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('categories', [Api\CategoryController::class, 'index']);
+
 Route::get('category/{category:slug}', [Api\ProductController::class, 'index']);
 Route::get('product/{product:slug}', [Api\ProductController::class, 'show']);
+Route::get('product/{product:slug}/comments', [Api\ProductController::class, 'comments']);

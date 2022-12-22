@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\Category;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\CategoryResource;
+use App\Http\Resources\Category\CategoryParent as CategoryParentResource;
 
 class CategoryController extends Controller
 {
@@ -12,6 +12,6 @@ class CategoryController extends Controller
     {
         $categories = Category::parents()->get();
 
-        return CategoryResource::collection($categories);
+        return CategoryParentResource::collection($categories);
     }
 }
