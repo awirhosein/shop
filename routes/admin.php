@@ -45,4 +45,8 @@ Route::namespace('App\Http\Controllers\Admin')->as('admin.')->group(function () 
     // comments
     Route::resource('comments', CommentController::class)->only('edit')->middleware('back_url');
     Route::resource('comments', CommentController::class)->except(['create', 'edit', 'show']);
+
+    // comments
+    Route::resource('questions', QuestionController::class)->only('edit')->middleware('back_url');
+    Route::resource('questions', QuestionController::class)->except(['create', 'edit', 'show']);
 });

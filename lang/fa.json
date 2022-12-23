@@ -166,5 +166,10 @@
     "Comment": "نظر",
     "Text": "متن",
     "Approved": "تایید شده",
-    "Unapproved": "تایید نشده"
+    "Unapproved": "تایید نشده",
+    "Questions": "سوالات",
+    "Question": "سوال",
+    "question": "سوال",
+    "answer": "پاسخ",
+    "Type": "نوع"
 }
