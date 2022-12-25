@@ -20,13 +20,15 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-// Category
-Route::get('categories', [Api\CategoryController::class, 'index']);
+Route::middleware('auth:sanctum')->group(function () {
+    // Category
+    Route::get('categories', [Api\CategoryController::class, 'index']);
 
-// Product
-Route::get('category/{category:slug}', [Api\ProductController::class, 'index']);
-Route::get('product/{product:slug}', [Api\ProductController::class, 'show']);
+    // Product
+    Route::get('category/{category:slug}', [Api\ProductController::class, 'index']);
+    Route::get('product/{product:slug}', [Api\ProductController::class, 'show']);
 
-// Comment
-Route::get('product/{product:slug}/comments', [Api\CommentController::class, 'index']);
-Route::post('product/{product:slug}/comments', [Api\CommentController::class, 'store']);
+    // Comment
+    Route::get('product/{product:slug}/comments', [Api\CommentController::class, 'index']);
+    Route::post('product/{product:slug}/comments', [Api\CommentController::class, 'store']);
+});
