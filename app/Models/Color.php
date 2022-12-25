@@ -2,9 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\{Model, SoftDeletes};
 
 class Color extends Model
 {
@@ -22,6 +21,6 @@ class Color extends Model
 
     public function products()
     {
-        return $this->belongsToMany(Product::class, 'product_color')->withPivot('id', 'price')->withTimestamps();
+        return $this->belongsToMany(Product::class, ProductColor::class)->withPivot('id', 'price')->withTimestamps();
     }
 }

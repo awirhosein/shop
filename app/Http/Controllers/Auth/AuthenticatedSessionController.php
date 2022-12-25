@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
-use App\Http\Requests\Auth\LoginRequest;
+use App\Http\Requests\Auth\Login as LoginRequest;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -23,7 +23,7 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      *
-     * @param  \App\Http\Requests\Auth\LoginRequest  $request
+     * @param  \App\Http\Requests\Auth\Login  $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(LoginRequest $request)

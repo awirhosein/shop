@@ -8,7 +8,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\{Auth, RateLimiter};
 
-class LoginRequest extends FormRequest
+class Login extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

@@ -64,9 +64,4 @@ class User extends Authenticatable
     {
         return $this->is_admin;
     }
-
-    public function is_user(): bool
-    {
-        return !$this->is_admin;
-    }
 }

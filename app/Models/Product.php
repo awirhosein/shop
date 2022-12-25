@@ -3,13 +3,13 @@
 namespace App\Models;
 
 use App\Enums\ProductStatus;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Traits\ProductRelations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\{Model, SoftDeletes};
 
 class Product extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, ProductRelations;
 
     public const STATUS_TYPES = [
         ProductStatus::DRAFT,
@@ -34,36 +34,8 @@ class Product extends Model
     /**
      * Scope
      */
-    public function scopePublished($query) 
+    public function scopePublished($query)
     {
         return $query->where('status', ProductStatus::PUBLISHED);
-    }
-
-    /**
-     * Relations
-     */
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
-
-    public function attributes()
-    {
-        return $this->belongsToMany(Attribute::class, 'product_attribute')->withPivot('value')->withTimestamps();
-    }
-
-    public function colors()
-    {
-        return $this->belongsToMany(Color::class, 'product_color')->withPivot('id', 'price')->withTimestamps();
-    }
-
-    public function comments()
-    {
-        return $this->morphMany(Comment::class, 'commentable');
-    }
-
-    public function questions()
-    {
-        return $this->hasMany(Question::class);
     }
 }

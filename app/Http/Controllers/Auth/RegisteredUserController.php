@@ -6,8 +6,8 @@ use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Auth\Events\Registered;
 use App\Providers\RouteServiceProvider;
-use App\Http\Requests\Auth\RegisterRequest;
 use Illuminate\Support\Facades\{Hash, Auth};
+use App\Http\Requests\Auth\Register as RegisterRequest;
 
 class RegisteredUserController extends Controller
 {
@@ -24,7 +24,7 @@ class RegisteredUserController extends Controller
     /**
      * Handle an incoming registration request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\Auth\Register  $request
      * @return \Illuminate\Http\RedirectResponse
      *
      * @throws \Illuminate\Validation\ValidationException
