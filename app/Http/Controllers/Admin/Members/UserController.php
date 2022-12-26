@@ -6,13 +6,13 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Requests\Auth\RegisterRequest;
+use App\Http\Requests\Auth\Register as RegisterRequest;
 
 class UserController extends Controller
 {
     public function index()
     {
-        $users = User::isUser()->latest()->paginate(config('custom.per_page'));
+        $users = User::user()->latest()->paginate(config('custom.per_page'));
 
         return view('admin.pages.members.users.index', compact('users'), [
             'fields' => ['Name', 'Email', 'Registration Date']

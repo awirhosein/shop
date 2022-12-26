@@ -29,7 +29,7 @@
 
             <x-admin.sidebar-item title="Comments" :link="route('admin.comments.index')" icon="fad fa-comments" active="comments.*" />
 
-            <x-admin.sidebar-item title="Questions" :link="route('admin.questions.index')" icon="fad fa-comments" active="questions.*" />
+            <x-admin.sidebar-item title="Questions" :link="route('admin.questions.index')" icon="fad fa-comments-question-check" active="questions.*" />
         </ul>
     </div>
 </nav>

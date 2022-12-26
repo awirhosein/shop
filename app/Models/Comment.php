@@ -40,4 +40,12 @@ class Comment extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * etc
+     */
+    public function is_approved(): bool
+    {
+        return (bool)$this->approved_at;
+    }
 }

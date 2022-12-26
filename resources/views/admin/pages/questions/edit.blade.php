@@ -27,7 +27,7 @@
 
             <div class="form-group">
                 <label class="text-muted">{{ __('Status') }}</label>
-                @if ($question->approved_at)
+                @if ($question->is_approved())
                     <input type="text" class="form-control" value="{{ __('Approved') }}" disabled>
                 @else
                     <select name="status" class="form-control">

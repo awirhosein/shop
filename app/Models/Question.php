@@ -31,4 +31,12 @@ class Question extends Model
     {
         return $this->belongsTo(Product::class);
     }
+
+    /**
+     * etc
+     */
+    public function is_approved(): bool
+    {
+        return (bool)$this->approved_at;
+    }
 }

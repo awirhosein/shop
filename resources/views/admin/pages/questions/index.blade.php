@@ -13,7 +13,7 @@
                     <td>{{ str()->limit($question->text, 50) }}</td>
                     <td>{{ __($question->type) }}</td>
                     <td>
-                        @if ($question->approved_at)
+                        @if ($question->is_approved())
                             <span class="badge badge-success">{{ __('Approved') }}</span>
                         @else
                             <span class="badge badge-danger">{{ __('Unapproved') }}</span>

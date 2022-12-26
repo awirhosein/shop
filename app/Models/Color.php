@@ -19,6 +19,9 @@ class Color extends Model
         'code'
     ];
 
+    /**
+     * Relation
+     */
     public function products()
     {
         return $this->belongsToMany(Product::class, ProductColor::class)->withPivot('id', 'price')->withTimestamps();

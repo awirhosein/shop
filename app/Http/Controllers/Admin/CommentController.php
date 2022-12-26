@@ -13,7 +13,7 @@ class CommentController extends Controller
         $comments = Comment::latest()->paginate(config('custom.per_page'));
 
         return view('admin.pages.comments.index', compact('comments'), [
-            'fields' => ['User', 'Text', 'Status']
+            'fields' => ['User', 'Product', 'Text', 'Status']
         ]);
     }
 

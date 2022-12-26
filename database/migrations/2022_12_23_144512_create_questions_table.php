@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('product_id');
-            $table->text('text');
             $table->foreignId('parent_id')->nullable();
+            $table->text('text');
             $table->enum('type', ['question', 'answer'])->default('question');
             $table->timestamp('approved_at')->nullable();
             $table->timestamps();

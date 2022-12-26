@@ -9,9 +9,10 @@
                 <tr>
                     <td class="font-weight-bold w-0">{{ $comment->id }}</td>
                     <td>{{ $comment->user?->name }}</td>
+                    <td>{{ str()->limit($comment->commentable->name, 25) }}</td>
                     <td>{{ str()->limit($comment->text, 70) }}</td>
                     <td>
-                        @if ($comment->approved_at)
+                        @if ($comment->is_approved())
                             <span class="badge badge-success">{{ __('Approved') }}</span>
                         @else
                             <span class="badge badge-danger">{{ __('Unapproved') }}</span>

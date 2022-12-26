@@ -21,7 +21,7 @@ Route::group([], function () {
     Route::get('auth/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
 });
 
-Route::middleware('auth:sanctum')->group(function () {
+Route::group([], function () {
     // Category
     Route::get('categories', [Api\CategoryController::class, 'index']);
 
@@ -31,5 +31,5 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Comment
     Route::get('product/{product:slug}/comments', [Api\CommentController::class, 'index']);
-    Route::post('product/{product:slug}/comments', [Api\CommentController::class, 'store']);
+    Route::post('product/{product:slug}/comments', [Api\CommentController::class, 'store'])->middleware('auth:sanctum');
 });
