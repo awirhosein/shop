@@ -19,7 +19,6 @@ return new class extends Migration
             $table->foreignId('attribute_id');
             $table->string('value')->nullable();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 

@@ -14,7 +14,7 @@
                     <td class="text-left">
                         <x-admin.dropdown
                             :color="route('admin.products.colors.index', $product)"
-                            :attribute="route('admin.products.attributes.edit', $product)"
+                            :attribute="route('admin.products.attributes.index', $product)"
                             :edit="route('admin.products.edit', $product)"
                             :delete="route('admin.products.destroy', $product)"
                         />

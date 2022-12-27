@@ -8,14 +8,14 @@ use App\Http\Controllers\Controller;
 
 class ProductAttributeController extends Controller
 {
-    public function attribute(Product $product)
+    public function index(Product $product)
     {
         $attributes = $product->category?->parent->attributes;
 
         return view('admin.pages.products.attribute', compact('product', 'attributes'));
     }
 
-    public function attributeUpdate(Request $request, Product $product)
+    public function store(Request $request, Product $product)
     {
         if ($request->has('values')) {
             $values = [];

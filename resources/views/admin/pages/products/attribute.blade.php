@@ -5,9 +5,8 @@
             <span>{{ hybrid_trans('Edit ProductAttributes') }}</span>
         </h6>
 
-        <form action="{{ route('admin.products.attributes.update', $product) }}" method="POST">
+        <form action="{{ route('admin.products.attributes.store', $product) }}" method="POST">
             @csrf
-            @method('PUT')
 
             @if ($attributes)
                 @foreach ($attributes as $attribute)
