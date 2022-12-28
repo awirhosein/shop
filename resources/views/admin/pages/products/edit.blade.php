@@ -3,6 +3,7 @@
     <div class="edit-page">
         <h6 class="border-bottom mb-4 pb-3">
             <span>{{ hybrid_trans('Edit Product') }}</span>
+            <small>({{ $product->slug }})</small>
         </h6>
 
         <form action="{{ route('admin.products.update', $product) }}" method="POST">
