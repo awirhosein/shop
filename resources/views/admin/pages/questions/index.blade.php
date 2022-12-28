@@ -16,7 +16,7 @@
                     </td>
                     <td class="w-0 text-center">
                         @if ($question->is_approved())
-                            @if ($count = $question->answers->count())
+                            @if ($count = $question->answers_count)
                                 <a href="{{ route('admin.questions.answers.index', $question) }}" class="text-dark">
                                     <span>{{ $count }}</span>
                                     <i class="fa-duotone fa-reply-all mr-1"></i>

@@ -10,7 +10,7 @@ class AnswerController extends Controller
 {
     public function index(Question $question)
     {
-        $answers = $question->answers()->latest()->paginate(config('custom.per_page'));
+        $answers = $question->answers()->with('user')->latest()->paginate(config('custom.per_page'));
 
         return view('admin.pages.questions.answers.index', compact('answers', 'question'), [
             'fields' => ['User', 'Text', 'Date', '']

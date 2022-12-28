@@ -10,7 +10,7 @@ class QuestionController extends Controller
 {
     public function index()
     {
-        $questions = Question::parent()->latest()->paginate(config('custom.per_page'));
+        $questions = Question::parent()->with('user', 'product')->withCount('answers')->latest()->paginate(config('custom.per_page'));
 
         return view('admin.pages.questions.index', compact('questions'), [
             'fields' => ['User', 'Product', 'Text', 'Date', '']

@@ -10,7 +10,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::latest()->paginate(config('custom.per_page'));
+        $categories = Category::with('parent')->latest()->paginate(config('custom.per_page'));
 
         return view('admin.pages.categories.index', compact('categories'), [
             'fields' => ['Name', 'Parent Category']

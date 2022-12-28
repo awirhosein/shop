@@ -10,7 +10,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $products = Product::latest()->paginate(config('custom.per_page'));
+        $products = Product::with('category')->latest()->paginate(config('custom.per_page'));
 
         return view('admin.pages.products.index', compact('products'), [
             'fields' => ['Name', 'Category', 'Status']
