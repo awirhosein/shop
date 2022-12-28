@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Api;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +15,9 @@ use App\Http\Controllers\Api\AuthController;
 */
 
 Route::group([], function () {
-    Route::post('auth/register', [AuthController::class, 'register']);
-    Route::post('auth/login', [AuthController::class, 'login']);
-    Route::get('auth/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
+    Route::post('auth/register', [Api\AuthController::class, 'register']);
+    Route::post('auth/login', [Api\AuthController::class, 'login']);
+    Route::get('auth/logout', [Api\AuthController::class, 'logout'])->middleware('auth:sanctum');
 });
 
 Route::group([], function () {
@@ -32,4 +31,8 @@ Route::group([], function () {
     // Comment
     Route::get('product/{product:slug}/comments', [Api\CommentController::class, 'index']);
     Route::post('product/{product:slug}/comments', [Api\CommentController::class, 'store'])->middleware('auth:sanctum');
+
+    // Question
+    Route::get('product/{product:slug}/questions', [Api\QuestionController::class, 'index']);
+    Route::post('product/{product:slug}/questions', [Api\QuestionController::class, 'store'])->middleware('auth:sanctum');
 });

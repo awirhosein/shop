@@ -24,15 +24,12 @@ class AnswerController extends Controller
 
     public function store(Request $request, Question $question)
     {
-        $request->validate([
-            'text' => 'required',
-        ]);
+        $request->validate(['text' => 'required']);
 
         auth()->user()->questions()->create([
             'product_id' => $question->product_id,
             'parent_id' => $question->id,
             'text' => $request->text,
-            'type' => 'answer',
             'approved_at' => now(),
         ]);
 
@@ -43,16 +40,18 @@ class AnswerController extends Controller
 
     public function edit(Question $question, Question $answer)
     {
-        return view('admin.pages.questions.answers.edit', compact('answer', 'question'));
+        return view('admin.pages.questions.answers.edit', compact('question', 'answer'));
     }
 
     public function update(Request $request, Question $question, Question $answer)
     {
-        $request->validate([
-            'text' => 'required',
-        ]);
+        $validated = $request->validate(['text' => 'required']);
 
-        $answer->update(['text' => $request->text]);
+        if ($request->status == 'approved') {
+            $validated['approved_at'] = now();
+        }
+
+        $answer->update($validated);
 
         toast(__('msg.success.update'), 'success');
 

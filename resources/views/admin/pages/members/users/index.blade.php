@@ -12,7 +12,7 @@
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->created_at }}</td>
                     <td class="text-left">
-                        <x-admin.dropdown
+                        <x-admin.dropdown-menu
                             :edit="route('admin.users.edit', $user)"
                             :delete="route('admin.users.destroy', $user)"
                         />

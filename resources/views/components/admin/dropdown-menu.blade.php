@@ -20,6 +20,15 @@
             <div class="dropdown-divider m-0"></div>
         @endisset
 
+        @isset($answers)
+            <a href="{{ $answers }}" class="text-dark w-100 d-flex align-items-center p-2 pr-3">
+                <i class="fa-duotone fa-reply-all"></i>
+                <span class="mr-3" style="font-size:14px">{{ __('Answers') }}</span>
+            </a>
+
+            <div class="dropdown-divider m-0"></div>
+        @endisset
+
         @isset($edit)
             <a href="{{ $edit }}" class="text-dark w-100 d-flex align-items-center p-2 pr-3">
                 <i class="fa-duotone fa-pen-to-square"></i>

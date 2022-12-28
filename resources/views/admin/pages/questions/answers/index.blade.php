@@ -14,14 +14,12 @@
                         <x-admin.date :date="$answer->created_at" ago />
                     </td>
                     <td class="w-0">
-                        @if ($answer->is_approved())
-                            <span class="badge badge-success">{{ __('Approved') }}</span>
-                        @else
+                        @if (!$answer->is_approved())
                             <span class="badge badge-danger">{{ __('Unapproved') }}</span>
                         @endif
                     </td>
                     <td class="text-left w-0">
-                        <x-admin.dropdown
+                        <x-admin.dropdown-menu
                             :edit="route('admin.questions.answers.edit', [$question, $answer])"
                             :delete="route('admin.questions.answers.destroy', [$question, $answer])" 
                         />

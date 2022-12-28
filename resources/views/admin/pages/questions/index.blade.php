@@ -12,23 +12,26 @@
                     <td>{{ str()->limit($question->product?->name, 15) }}</td>
                     <td>{{ str()->limit($question->text, 40) }}</td>
                     <td>
-                        <a href="{{ route('admin.questions.answers.index', $question) }}" class="text-dark">
-                            <span>{{ $question->answers->count() }}</span>
-                            <i class="fa-duotone fa-reply-all mr-1"></i>
-                        </a>
-                    </td>
-                    <td>
                         <x-admin.date :date="$question->created_at" ago />
                     </td>
-                    <td class="w-0">
+                    <td class="w-0 text-center">
                         @if ($question->is_approved())
-                            <span class="badge badge-success">{{ __('Approved') }}</span>
+                            @if ($count = $question->answers->count())
+                                <a href="{{ route('admin.questions.answers.index', $question) }}" class="text-dark">
+                                    <span>{{ $count }}</span>
+                                    <i class="fa-duotone fa-reply-all mr-1"></i>
+                                </a>
+                            @endif
                         @else
                             <span class="badge badge-danger">{{ __('Unapproved') }}</span>
                         @endif
                     </td>
                     <td class="w-0 text-left">
-                        <x-admin.dropdown :edit="route('admin.questions.edit', $question)" :delete="route('admin.questions.destroy', $question)" />
+                        <x-admin.dropdown-menu
+                            :answers="route('admin.questions.answers.index', $question)"
+                            :edit="route('admin.questions.edit', $question)"
+                            :delete="route('admin.questions.destroy', $question)"
+                        />
                     </td>
                 </tr>
             @endforeach

@@ -11,7 +11,7 @@
                     <td>{{ $attribute->name }}</td>
                     <td>{{ $attribute->category?->name }}</td>
                     <td class="text-left">
-                        <x-admin.dropdown
+                        <x-admin.dropdown-menu
                             :edit="route('admin.attributes.edit', $attribute)"
                             :delete="route('admin.attributes.destroy', $attribute)"
                         />

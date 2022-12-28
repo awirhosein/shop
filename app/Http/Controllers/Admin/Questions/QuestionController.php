@@ -10,10 +10,10 @@ class QuestionController extends Controller
 {
     public function index()
     {
-        $questions = Question::where('type', 'question')->latest()->paginate(config('custom.per_page'));
+        $questions = Question::parent()->latest()->paginate(config('custom.per_page'));
 
         return view('admin.pages.questions.index', compact('questions'), [
-            'fields' => ['User', 'Product', 'Text', 'Answers', 'Date', '']
+            'fields' => ['User', 'Product', 'Text', 'Date', '']
         ]);
     }
 
@@ -24,12 +24,9 @@ class QuestionController extends Controller
 
     public function update(Request $request, Question $question)
     {
-        $validated = $request->validate([
-            'text' => 'required',
-            'status' => 'nullable'
-        ]);
+        $validated = $request->validate(['text' => 'required']);
 
-        if ($request->status == 'approved' && !$question->approved_at) {
+        if ($request->status == 'approved') {
             $validated['approved_at'] = now();
         }
 

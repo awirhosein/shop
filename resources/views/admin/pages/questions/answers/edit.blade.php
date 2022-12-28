@@ -20,6 +20,16 @@
                 <x-admin.error name="text" />
             </div>
 
+            @if (!$answer->is_approved())
+                <div class="form-group">
+                    <label class="text-muted">{{ __('Status') }}</label>
+                    <select name="status" class="form-control">
+                        <option value="approved" @selected($answer->approved_at)>{{ __('Approved') }}</option>
+                        <option value="unapproved" @selected(!$answer->approved_at)>{{ __('Unapproved') }}</option>
+                    </select>
+                </div>
+            @endif
+
             <x-admin.submit back />
         </form>
     </div>

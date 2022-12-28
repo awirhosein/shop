@@ -25,17 +25,15 @@
                 <x-admin.error name="text" />
             </div>
 
-            <div class="form-group">
-                <label class="text-muted">{{ __('Status') }}</label>
-                @if ($question->is_approved())
-                    <input type="text" class="form-control" value="{{ __('Approved') }}" disabled>
-                @else
+            @if (!$question->is_approved())
+                <div class="form-group">
+                    <label class="text-muted">{{ __('Status') }}</label>
                     <select name="status" class="form-control">
                         <option value="approved" @selected($question->approved_at)>{{ __('Approved') }}</option>
                         <option value="unapproved" @selected(!$question->approved_at)>{{ __('Unapproved') }}</option>
                     </select>
-                @endif
-            </div>
+                </div>
+            @endif
 
             <x-admin.submit back />
         </form>

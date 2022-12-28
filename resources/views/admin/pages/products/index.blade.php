@@ -12,7 +12,7 @@
                     <td>{{ $product->category?->name }}</td>
                     <td>{{ __($product->status) }}</td>
                     <td class="text-left">
-                        <x-admin.dropdown
+                        <x-admin.dropdown-menu
                             :color="route('admin.products.colors.index', $product)"
                             :attribute="route('admin.products.attributes.index', $product)"
                             :edit="route('admin.products.edit', $product)"

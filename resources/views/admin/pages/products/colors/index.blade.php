@@ -11,7 +11,7 @@
                     <td>{{ $color->name }}</td>
                     <td>{{ number_format($color->pivot->price) }}</td>
                     <td class="text-left">
-                        <x-admin.dropdown
+                        <x-admin.dropdown-menu
                             :edit="route('admin.products.colors.edit', [$product, $color->pivot])"
                             :delete="route('admin.products.colors.destroy', [$product, $color->pivot])"
                         />

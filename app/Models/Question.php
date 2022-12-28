@@ -20,8 +20,20 @@ class Question extends Model
         'parent_id',
         'text',
         'approved_at',
-        'type'
     ];
+
+    /**
+     * Scope
+     */
+    public function scopeApproved($query)
+    {
+        return $query->whereNotNull('approved_at');
+    }
+
+    public function scopeParent($query)
+    {
+        return $query->where('parent_id', null);
+    }
 
     /**
      * etc

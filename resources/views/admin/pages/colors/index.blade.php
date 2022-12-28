@@ -14,7 +14,7 @@
                     <td>{{ $color->name }}</td>
                     <td dir="ltr">{{ $color->code }}</td>
                     <td class="text-left">
-                        <x-admin.dropdown
+                        <x-admin.dropdown-menu
                             :edit="route('admin.colors.edit', $color)"
                             :delete="route('admin.colors.destroy', $color)"
                         />
