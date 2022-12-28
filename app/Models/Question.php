@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\Traits\QuestionRelations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\{Model, SoftDeletes};
 
 class Question extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, QuestionRelations;
 
     /**
      * The attributes that are mass assignable.
@@ -15,22 +16,12 @@ class Question extends Model
      * @var array
      */
     protected $fillable = [
+        'product_id',
+        'parent_id',
         'text',
-        'approved_at'
+        'approved_at',
+        'type'
     ];
-
-    /**
-     * Relation
-     */
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
-
-    public function product()
-    {
-        return $this->belongsTo(Product::class);
-    }
 
     /**
      * etc

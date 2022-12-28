@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Comment;
 
 class CommentController extends Controller
 {
@@ -13,7 +13,7 @@ class CommentController extends Controller
         $comments = Comment::latest()->paginate(config('custom.per_page'));
 
         return view('admin.pages.comments.index', compact('comments'), [
-            'fields' => ['User', 'Product', 'Text', 'Status']
+            'fields' => ['User', 'Product', 'Text', 'Date', '']
         ]);
     }
 

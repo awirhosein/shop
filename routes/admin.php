@@ -32,7 +32,13 @@ Route::namespace(Admin::class)->as('admin.')->group(function () {
     // colors
     Route::resource('colors', ColorController::class)->except('show');
     // comments
-    Route::resource('comments', CommentController::class)->except(['create', 'store', 'show']);
+    Route::resource('comments', CommentController::class)->except('create', 'store', 'show');
+
     // questions
-    Route::resource('questions', QuestionController::class)->except(['create', 'store', 'show']);
+    Route::group([], function () {
+        // 
+        Route::resource('questions', Questions\QuestionController::class)->except('create', 'store', 'show');
+        // answers
+        Route::resource('questions.answers', Questions\AnswerController::class)->except('show');
+    });
 });

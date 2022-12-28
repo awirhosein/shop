@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Questions;
 
 use App\Models\Question;
 use Illuminate\Http\Request;
@@ -10,10 +10,10 @@ class QuestionController extends Controller
 {
     public function index()
     {
-        $questions = Question::latest()->paginate(config('custom.per_page'));
+        $questions = Question::where('type', 'question')->latest()->paginate(config('custom.per_page'));
 
         return view('admin.pages.questions.index', compact('questions'), [
-            'fields' => ['User', 'Product', 'Text', 'Type', 'Status']
+            'fields' => ['User', 'Product', 'Text', 'Answers', 'Date', '']
         ]);
     }
 
@@ -25,8 +25,8 @@ class QuestionController extends Controller
     public function update(Request $request, Question $question)
     {
         $validated = $request->validate([
-            'text' => ['required'],
-            'status' => ['nullable']
+            'text' => 'required',
+            'status' => 'nullable'
         ]);
 
         if ($request->status == 'approved' && !$question->approved_at) {

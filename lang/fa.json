@@ -171,5 +171,8 @@
     "Question": "سوال",
     "question": "سوال",
     "answer": "پاسخ",
-    "Type": "نوع"
+    "Answer": "پاسخ",
+    "Answers": "پاسخ ها",
+    "Type": "نوع",
+    "Date": "تاریخ"
 }

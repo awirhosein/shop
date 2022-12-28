@@ -12,6 +12,9 @@
                     <td>{{ str()->limit($comment->commentable->name, 25) }}</td>
                     <td>{{ str()->limit($comment->text, 70) }}</td>
                     <td>
+                        <x-admin.date :date="$comment->created_at" ago />
+                    </td>
+                    <td>
                         @if ($comment->is_approved())
                             <span class="badge badge-success">{{ __('Approved') }}</span>
                         @else

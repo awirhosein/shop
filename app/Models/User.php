@@ -43,7 +43,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
     /**
      * scopes
      */
@@ -55,6 +54,14 @@ class User extends Authenticatable
     public function scopeUser($query)
     {
         $query->where('is_admin', 0);
+    }
+
+    /**
+     * Relation
+     */
+    public function questions()
+    {
+        return $this->hasMany(Question::class, 'user_id', 'id');
     }
 
     /**
