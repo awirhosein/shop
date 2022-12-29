@@ -8,22 +8,13 @@ Route::namespace(Admin::class)->as('admin.')->group(function () {
     Route::view('dashboard', 'admin.pages.index')->name('dashboard');
 
     // members
-    Route::group([], function () {
-        // users
-        Route::resource('users', Members\UserController::class)->except('show');
-        // admins
-        Route::resource('admins', Members\AdminController::class)->except('create', 'store', 'show');
-    });
+    Route::resource('users', Members\UserController::class)->except('show');
+    Route::resource('admins', Members\AdminController::class)->except('create', 'store', 'show');
 
     // products
-    Route::group([], function () {
-        // 
-        Route::resource('products', Products\ProductController::class)->except('show');
-        // attributes
-        Route::resource('products.attributes', Products\ProductAttributeController::class)->only('index', 'store');
-        // color and price
-        Route::resource('products.colors', Products\ProductColorController::class)->except('show');
-    });
+    Route::resource('products', Products\ProductController::class)->except('show');
+    Route::resource('products.attributes', Products\ProductAttributeController::class)->only('index', 'store');
+    Route::resource('products.colors', Products\ProductColorController::class)->except('show');
 
     // categories
     Route::resource('categories', CategoryController::class)->except('show');
@@ -35,10 +26,6 @@ Route::namespace(Admin::class)->as('admin.')->group(function () {
     Route::resource('comments', CommentController::class)->except('create', 'store', 'show');
 
     // questions
-    Route::group([], function () {
-        // 
-        Route::resource('questions', Questions\QuestionController::class)->except('create', 'store', 'show');
-        // answers
-        Route::resource('questions.answers', Questions\AnswerController::class)->except('show');
-    });
+    Route::resource('questions', Questions\QuestionController::class)->except('create', 'store', 'show');
+    Route::resource('questions.answers', Questions\AnswerController::class)->except('show');
 });

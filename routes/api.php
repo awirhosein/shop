@@ -14,25 +14,32 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group([], function () {
-    Route::post('auth/register', [Api\AuthController::class, 'register']);
-    Route::post('auth/login', [Api\AuthController::class, 'login']);
-    Route::get('auth/logout', [Api\AuthController::class, 'logout'])->middleware('auth:sanctum');
-});
+/**
+ * Authentication
+ */
+Route::post('auth/register', [Api\AuthController::class, 'register']);
+Route::post('auth/login', [Api\AuthController::class, 'login']);
+Route::get('auth/logout', [Api\AuthController::class, 'logout'])->middleware('auth:sanctum');
 
-Route::group([], function () {
-    // Category
-    Route::get('categories', [Api\CategoryController::class, 'index']);
+/**
+ * Category
+ */
+Route::get('categories', [Api\CategoryController::class, 'index']);
 
-    // Product
-    Route::get('category/{category:slug}', [Api\ProductController::class, 'index']);
-    Route::get('product/{product:slug}', [Api\ProductController::class, 'show']);
+/**
+ * Product
+ */
+Route::get('category/{category}', [Api\ProductController::class, 'index']);
+Route::get('product/{product}', [Api\ProductController::class, 'show']);
 
-    // Comment
-    Route::get('product/{product:slug}/comments', [Api\CommentController::class, 'index']);
-    Route::post('product/{product:slug}/comments', [Api\CommentController::class, 'store'])->middleware('auth:sanctum');
+/**
+ * Comment
+ */
+Route::get('product/{product}/comments', [Api\CommentController::class, 'index']);
+Route::post('product/{product}/comments', [Api\CommentController::class, 'store'])->middleware('auth:sanctum');
 
-    // Question
-    Route::get('product/{product:slug}/questions', [Api\QuestionController::class, 'index']);
-    Route::post('product/{product:slug}/questions', [Api\QuestionController::class, 'store'])->middleware('auth:sanctum');
-});
+/**
+ * Question & Answer
+ */
+Route::get('product/{product}/questions', [Api\QuestionController::class, 'index']);
+Route::post('product/{product}/questions', [Api\QuestionController::class, 'store'])->middleware('auth:sanctum');
