@@ -38,5 +38,7 @@ Route::group([], function () {
 
     // Attribute
     Route::get('product/{product:slug}/attributes', [Api\AttributeController::class, 'index']);
-    // Route::post('product/{product:slug}/attributes', [Api\QuestionController::class, 'store'])->middleware('auth:sanctum');
+
+    // Color
+    Route::get('product/{product:slug}/colors', [Api\ColorPriceController::class, 'index']);
 });
