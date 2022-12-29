@@ -2,7 +2,7 @@
 
 namespace App\Http\Resources\Question;
 
-use App\Http\Resources\User\User as UserResource;
+use App\Http\Resources\User\User;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class Question extends JsonResource
@@ -19,8 +19,11 @@ class Question extends JsonResource
             'id' => $this->id,
             'text' => $this->text,
             'created_at' => $this->created_at,
-            'user' => new UserResource($this->user),
-            'answers' => $this->when(!$this->parent_id, self::collection($this->answers()->approved()->get()))
+            'user' => new User($this->user),
+            'answers' => $this->when(
+                !$this->parent_id,
+                self::collection($this->answers()->approved()->get())
+            )
         ];
     }
 }

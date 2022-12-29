@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Models\{Product, Category};
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Product\Product as ProductResource;
+use App\Http\Resources\Product\ProductShort as ProductShortResource;
 
 class ProductController extends Controller
 {
@@ -12,7 +13,7 @@ class ProductController extends Controller
     {
         $products = $category->products()->published()->get();
 
-        return ProductResource::collection($products);
+        return ProductShortResource::collection($products);
     }
 
     public function show(Product $product)

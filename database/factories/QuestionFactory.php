@@ -17,7 +17,7 @@ class QuestionFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => rand(1, 50),
+            'user_id' => rand(1, 100),
             'text' => $this->faker->text(),
             'approved_at' => now()
         ];

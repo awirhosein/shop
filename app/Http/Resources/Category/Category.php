@@ -4,7 +4,6 @@ namespace App\Http\Resources\Category;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-
 class Category extends JsonResource
 {
     /**
@@ -19,6 +18,7 @@ class Category extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'slug' => $this->slug,
+            'children' => CategoryShort::collection($this->children)
         ];
     }
 }

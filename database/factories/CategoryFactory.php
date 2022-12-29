@@ -21,7 +21,6 @@ class CategoryFactory extends Factory
         return [
             'name' => $name,
             'slug' => str()->slug($name),
-            'parent_id' => rand(1, 10)
         ];
     }
 }

@@ -35,10 +35,4 @@ Route::group([], function () {
     // Question
     Route::get('product/{product:slug}/questions', [Api\QuestionController::class, 'index']);
     Route::post('product/{product:slug}/questions', [Api\QuestionController::class, 'store'])->middleware('auth:sanctum');
-
-    // Attribute
-    Route::get('product/{product:slug}/attributes', [Api\AttributeController::class, 'index']);
-
-    // Color
-    Route::get('product/{product:slug}/colors', [Api\ColorPriceController::class, 'index']);
 });

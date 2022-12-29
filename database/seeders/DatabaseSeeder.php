@@ -22,13 +22,23 @@ class DatabaseSeeder extends Seeder
             'is_admin' => 1
         ]);
 
-        User::factory(50)->create();
+        User::factory(100)->create();
+        Color::factory(30)->create();
+
         Category::factory(10)
-            ->has(Attribute::factory(rand(2, 5)))->create(['parent_id' => null]);
-        Category::factory(20)
-            ->has(Product::factory(rand(2, 5))
-                ->has(Comment::factory(rand(2, 5)))
-                ->has(Question::factory(rand(2, 5))))->create();
-        Color::factory(20)->create();
+            ->hasAttributes(10)
+            ->has(
+                Category::factory(10)
+                    ->has(
+                        Product::factory(5)
+                            ->hasComments(6)
+                            ->has(
+                                Question::factory(5)
+                                    // ->hasAnswers(2)
+                            )
+                    ),
+                'children'
+            )
+            ->create();
     }
 }

@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Resources\Comment;
+namespace App\Http\Resources\Category;
 
-use App\Http\Resources\User\User;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class Comment extends JsonResource
+class CategoryShort extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,9 +16,8 @@ class Comment extends JsonResource
     {
         return [
             'id' => $this->id,
-            'text' => $this->text,
-            'user' => new User($this->user),
-            'created_at' => $this->created_at,
+            'name' => $this->name,
+            'slug' => $this->slug,
         ];
     }
 }

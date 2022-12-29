@@ -3,13 +3,13 @@
 namespace App\Models;
 
 use App\Enums\ProductStatus;
-use App\Models\Traits\ProductRelations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\{Model, SoftDeletes};
+use App\Models\Traits\{ProductScopes, ProductRelations};
 
 class Product extends Model
 {
-    use HasFactory, SoftDeletes, ProductRelations;
+    use HasFactory, SoftDeletes, ProductRelations, ProductScopes;
 
     public const STATUS_TYPES = [
         ProductStatus::DRAFT,
@@ -30,12 +30,4 @@ class Product extends Model
         'category_id',
         'status',
     ];
-
-    /**
-     * Scope
-     */
-    public function scopePublished($query)
-    {
-        return $query->where('status', ProductStatus::PUBLISHED);
-    }
 }

@@ -2,7 +2,6 @@
 
 namespace App\Http\Resources\Color;
 
-use App\Http\Resources\User\User as UserResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class Color extends JsonResource
@@ -16,7 +15,6 @@ class Color extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => $this->id,
             'name' => $this->name,
             'code' => $this->code,
             'price' => $this->pivot->price,

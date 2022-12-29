@@ -2,6 +2,9 @@
 
 namespace App\Http\Resources\Product;
 
+use App\Http\Resources\Color\Color;
+use App\Http\Resources\Attribute\Attribute;
+use App\Http\Resources\Category\CategoryShort;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class Product extends JsonResource
@@ -21,6 +24,10 @@ class Product extends JsonResource
             'image' => $this->image,
             'content' => $this->content,
             'created_at' => $this->created_at,
+            'category' => new CategoryShort($this->category),
+            'colors' => Color::collection($this->colors),
+            'attributes' => Attribute::collection($this->attributes),
+            'related_products' => ProductShort::collection($this->relatedProducts()->get())
         ];
     }
 }

@@ -23,6 +23,7 @@ class ProductFactory extends Factory
             'name' => $name,
             'slug' => str()->slug($name),
             'content' => $this->faker->sentence(),
+            'image' => $this->faker->imageUrl(),
             'status' => ProductStatus::PUBLISHED
         ];
     }

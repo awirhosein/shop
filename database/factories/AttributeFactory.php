@@ -18,7 +18,6 @@ class AttributeFactory extends Factory
     {
         return [
             'name' => $this->faker->sentence(rand(1, 3)),
-            'category_id' => rand(1, 10)
         ];
     }
 }
